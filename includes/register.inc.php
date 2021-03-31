@@ -2,8 +2,6 @@
 
 if (isset($_POST["submit"])) {
 
-    echo "Sukses";
-
     $name = $_POST["name"];
     $username = $_POST["username"];
     $email = $_POST["email"];
@@ -15,7 +13,7 @@ if (isset($_POST["submit"])) {
     require_once 'functions.inc.php';
 
     if (emptyInputSignup($name, $username, $email, $phone, $password, $repeatPassword) != FALSE) {
-        header("location: ../register.php?error=emptyinput");
+        header("location: ../register.php");
         exit();
     }
     if (invalidUid($username) != false) {
