@@ -59,7 +59,7 @@ function invalidPhoneNumber($phone)
 function passwordTooShort($password)
 {
     $result;
-    if ($password < 5) {
+    if (strlen($password) < 5) {
         $result = TRUE;
     } else {
         $result = FALSE;
