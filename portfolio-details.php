@@ -29,6 +29,9 @@ include 'header.php';
               <a class="dropdown-item text-center" href='includes/logout.inc.php' class='login'>Logout</a>
             </div>
           </li>
+          <div>
+            <img class="img-profile rounded-circle" width="45px" src="assets/foto/<?= $_SESSION['photoUser'] ?>">
+          </div>
         <?php } else { ?>
           <li><a href='login.php' class='login'>Login</a></li>
         <?php } ?>
