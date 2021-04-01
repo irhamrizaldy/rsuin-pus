@@ -91,9 +91,9 @@ function usernameExists($conn, $username, $email)
     mysqli_stmt_close($stmt);
 }
 
-function createUser($conn, $name, $username, $email, $phone, $password)
+function createUser($conn, $name, $username, $email, $phone, $password, $img)
 {
-    $sql = "INSERT INTO users (usersName, usersUsername, usersEmail, phoneNumber, usersPassword) VALUES (?, ?, ?, ?, ?);";
+    $sql = "INSERT INTO users (usersName, usersUsername, usersEmail, phoneNumber, usersPassword, usersPhoto) VALUES (?, ?, ?, ?, ?, ?);";
     $stmt =  mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../register.php?error=stmtError");
@@ -102,7 +102,7 @@ function createUser($conn, $name, $username, $email, $phone, $password)
 
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt, "sssss", $name, $username, $email, $phone, $hashedPassword);
+    mysqli_stmt_bind_param($stmt, "sssss", $name, $username, $email, $phone, $hashedPassword, $img);
     mysqli_stmt_execute($stmt);
 
     mysqli_stmt_close($stmt);
