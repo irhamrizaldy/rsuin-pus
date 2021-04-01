@@ -103,7 +103,7 @@ function createUser($conn, $name, $username, $email, $phone, $password, $img)
         $rand_number = rand(1, 999);
         $new_img_name = $rand_number . '-' . $img;
         if (in_array($ext, $allowed_ext) === true) {
-            move_uploaded_file($file_temp, 'C:/xampp/htdocs/rumahsakit/database/foto/' . $new_img_name);
+            move_uploaded_file($file_temp, 'C:/xampp/htdocs/rumahsakit/assets/foto/' . $new_img_name);
             $query = "INSERT INTO users (usersName, usersUsername, usersEmail, phoneNumber, usersPassword, usersPhoto) VALUES ('$name', '$username', '$email', '$phone', '$hashedPassword', '$new_img_name')";
             $result = mysqli_query($conn, $query);
             if ($result) {
@@ -135,7 +135,7 @@ function loginUser($conn, $username, $password)
         exit();
     }
 
-    $usernameExists = usernameExists($conn, $username, $username, $username);
+    $usernameExists = usernameExists($conn, $username, $username, $username, $username);
 
     if ($usernameExists == FALSE) {
         header("location: ../login.php?error=usernameDoesntExist");
@@ -153,6 +153,7 @@ function loginUser($conn, $username, $password)
         $_SESSION["idUser"] = $usernameExists["usersId"];
         $_SESSION["usernameUser"] = $usernameExists["usersUsername"];
         $_SESSION["nameUser"] = $usernameExists["usersName"];
+        $_SESSION["photoUser"] = $usernameExists["usersPhoto"];
 
         header("location: ../index.php");
         exit();
