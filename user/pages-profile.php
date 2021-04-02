@@ -18,11 +18,16 @@ session_start();
     <link rel="icon" type="image/png" sizes="16x16" href="../admin/assets/images/favicon.png">
     <!-- Custom CSS -->
     <link href="monster-html/css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    
 <![endif]-->
 </head>
 
@@ -49,7 +54,7 @@ session_start();
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="../index.php">
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -105,7 +110,7 @@ session_start();
                                 <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <img src="../assets/foto/<?= $_SESSION["photoUser"] ?>" alt="user" class="profile-pic me-2"><?= ($_SESSION["nameUser"]) ?>
                                 </a>
-                                <ul class="dropdown-menu show" aria-labelledby="navbarDropdown"></ul>
+                                <!-- <ul class="dropdown-menu show" aria-labelledby="navbarDropdown"></ul> -->
                             </li>
                         <?php } ?>
                     </ul>
@@ -155,14 +160,65 @@ session_start();
             <div class="page-breadcrumb">
                 <div class="row align-items-center">
                     <div class="col-md-6 col-8 align-self-center">
-                        <h3 class="page-title mb-0 p-0">Profil Saya</h3>
+                        <h3 class="page-title mb-0 p-0">Data Pasien</h3>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Profil Saya</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Data Pasien</li>
                                 </ol>
                             </nav>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-4 align-self-center">
+                        <div class="text-end upgrade-btn">
+                            <button type="button" class="btn btn-danger d-none d-md-inline-block text-white" data-toggle="modal" data-target="#myModal<?= $_SESSION["idUser"] ?>">Edit Profile</button>
+                        </div>
+                        <div class="modal fade" id="myModal<?= $_SESSION["idUser"] ?>" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Update Data Pasien</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form role="form" action="../includes/update-profile-user.inc.php" method="get">
+                                            <input type="hidden" name="id_mhs" value="<?= $_SESSION["idUser"] ?>">
+                                            <div class="form-group">
+                                                <label>Name</label>
+                                                <input type="text" name="name" class="form-control" value="<?= $_SESSION["nameUser"] ?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <input type="email" name="email" class="form-control" value="<?= $_SESSION["emailUser"] ?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>New Password</label>
+                                                <input type="password" name="password" class="form-control" value="password">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Confirm New Password</label>
+                                                <input type="password" name="npassword" class="form-control" value="password">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Phone</label>
+                                                <input type="text" name="phone" class="form-control" value="<?= $_SESSION["phoneUser"] ?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Profile Picture</label><br>
+                                                <img src="../assets/foto/<?= $_SESSION["photoUser"] ?>" width="150" /><br>
+                                                <br><input type="file" id="foto" name="foto">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-success text-white">Update</button>
+                                                <button type="button" class="btn btn-default text-white" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -195,42 +251,23 @@ session_start();
                     <div class="col-lg-8 col-xlg-9 col-md-7">
                         <div class="card">
                             <div class="card-body">
-                                <form enctype="multipart/form-data" action="includes/update-profile-user.inc.php" method="post" class="form-horizontal form-material mx-2">
+                                <form class="form-horizontal form-material mx-2">
                                     <div class="form-group">
                                         <label class="col-md-12 mb-0">Full Name</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="<?= $_SESSION["nameUser"] ?>" class="form-control ps-0 form-control-line">
+                                            <input type="text" id="name" name="name" placeholder="<?= $_SESSION["nameUser"] ?>" class="form-control ps-0 form-control-line" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="example-email" class="col-md-12">Email</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="<?= $_SESSION["emailUser"] ?>" class="form-control ps-0 form-control-line" name="example-email" id="example-email">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12 mb-0">Password</label>
-                                        <div class="col-md-12">
-                                            <input type="password" value="password" class="form-control ps-0 form-control-line">
+                                            <input type="email" id="email" name="email" placeholder="<?= $_SESSION["emailUser"] ?>" class="form-control ps-0 form-control-line" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12 mb-0">Phone</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="<?= $_SESSION["phoneUser"] ?>" class="form-control ps-0 form-control-line">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12 mb-0">Profile Picture</label>
-                                        <div class="col-md-12">
-                                            <img src="../assets/foto/<?= $_SESSION["photoUser"] ?>" width="150" />
-                                        </div><br>
-                                        <input type="file">
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-12 d-flex">
-                                            <button class="btn btn-success mx-auto mx-md-0 text-white">Update
-                                                Profile</button>
+                                            <input type="text" id="phone" name="phone" placeholder="<?= $_SESSION["phoneUser"] ?>" class="form-control ps-0 form-control-line" disabled>
                                         </div>
                                     </div>
                                 </form>
@@ -286,5 +323,7 @@ session_start();
     <!--Custom JavaScript -->
     <script src="monster-html/js/custom.js"></script>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 
 </html>
