@@ -108,7 +108,16 @@ session_start();
                             <!-- ============================================================== -->
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="../assets/foto/<?= $_SESSION["photoUser"] ?>" alt="user" class="profile-pic me-2"><?= ($_SESSION["nameUser"]) ?>
+                                    <?php
+                                    include "dbh.inc.php";
+                                    $image_query = mysqli_query($conn, "SELECT usersPhoto FROM users WHERE usersId = '" . $_SESSION['idUser'] . "'");
+                                    while ($rows = mysqli_fetch_array($image_query)) {
+                                        $img_name = $rows["usersPhoto"];
+                                    ?>
+                                        <img src="../assets/foto/<?= $img_name ?>" alt="user" class="profile-pic me-2"><?= ($_SESSION["nameUser"]) ?>
+                                    <?php
+                                    }
+                                    ?>
                                 </a>
                                 <!-- <ul class="dropdown-menu show" aria-labelledby="navbarDropdown"></ul> -->
                             </li>
@@ -176,42 +185,38 @@ session_start();
                         </div>
                         <div class="modal fade" id="myModal<?= $_SESSION["idUser"] ?>" role="dialog">
                             <div class="modal-dialog">
-
                                 <!-- Modal content-->
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h4 class="modal-title">Update Data Pasien</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <form role="form" action="../includes/update-profile-user.inc.php" method="get">
-                                            <input type="hidden" name="id_mhs" value="<?= $_SESSION["idUser"] ?>">
-                                            <div class="form-group">
-                                                <label>Name</label>
-                                                <input type="text" name="name" class="form-control" value="<?= $_SESSION["nameUser"] ?>">
-                                            </div>
+                                        <form role="form" action="../includes/update-profile-user.inc.php" method="post" enctype="multipart/form-data">
+                                            <input type="hidden" name="iduser" value="<?= $_SESSION["idUser"] ?>">
                                             <div class="form-group">
                                                 <label>Email</label>
                                                 <input type="email" name="email" class="form-control" value="<?= $_SESSION["emailUser"] ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>New Password</label>
-                                                <input type="password" name="password" class="form-control" value="password">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Confirm New Password</label>
-                                                <input type="password" name="npassword" class="form-control" value="password">
                                             </div>
                                             <div class="form-group">
                                                 <label>Phone</label>
                                                 <input type="text" name="phone" class="form-control" value="<?= $_SESSION["phoneUser"] ?>">
                                             </div>
                                             <div class="form-group">
-                                                <label>Profile Picture</label><br>
-                                                <img src="../assets/foto/<?= $_SESSION["photoUser"] ?>" width="150" /><br>
-                                                <br><input type="file" id="foto" name="foto">
+                                                <?php
+                                                include "dbh.inc.php";
+                                                $image_query = mysqli_query($conn, "SELECT usersPhoto FROM users WHERE usersId = '" . $_SESSION['idUser'] . "'");
+                                                while ($rows = mysqli_fetch_array($image_query)) {
+                                                    $img_name = $rows["usersPhoto"];
+                                                ?>
+                                                    <label>Profile Picture</label><br>
+                                                    <img src="../assets/foto/<?= $img_name ?>" width="150" /><br>
+                                                    <br><input type="file" id="foto" name="foto">
+                                                <?php
+                                                }
+                                                ?>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="submit" class="btn btn-success text-white">Update</button>
+                                                <button type="submit" class="btn btn-success text-white" name="submit">Update</button>
                                                 <button type="button" class="btn btn-default text-white" data-dismiss="modal">Close</button>
                                             </div>
                                         </form>
@@ -239,10 +244,19 @@ session_start();
                     <div class="col-lg-4 col-xlg-3 col-md-5">
                         <div class="card">
                             <div class="card-body profile-card">
-                                <center class="mt-4"> <img src="../assets/foto/<?= $_SESSION["photoUser"] ?>" class="rounded-circle" width="150" />
+                                <?php
+                                include "dbh.inc.php";
+                                $image_query = mysqli_query($conn, "SELECT usersPhoto FROM users WHERE usersId = '" . $_SESSION['idUser'] . "'");
+                                while ($rows = mysqli_fetch_array($image_query)) {
+                                    $img_name = $rows["usersPhoto"];
+                                ?>
+                                    <center class="mt-4"> <img src="../assets/foto/<?= $img_name ?>" class="rounded-circle" width="150" />
+                                    <?php
+                                }
+                                    ?>
                                     <h4 class="card-title mt-2"><?= ($_SESSION["nameUser"]) ?></h4>
                                     <h6 class="card-subtitle">Pasien</h6>
-                                </center>
+                                    </center>
                             </div>
                         </div>
                     </div>

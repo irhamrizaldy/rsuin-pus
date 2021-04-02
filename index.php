@@ -30,7 +30,16 @@ include 'header.php';
             </div>
           </li>
           <div>
-            <img class="img-profile rounded-circle" width="45px" height="45px" src="assets/foto/<?= $_SESSION["photoUser"] ?>">
+            <?php
+            include "includes/dbh.inc.php";
+            $image_query = mysqli_query($conn, "SELECT usersPhoto FROM users WHERE usersId = '" . $_SESSION['idUser'] . "'");
+            while ($rows = mysqli_fetch_array($image_query)) {
+              $img_name = $rows["usersPhoto"];
+            ?>
+              <img class="img-profile rounded-circle" width="45px" height="45px" src="assets/foto/<?= $img_name ?>">
+            <?php
+            }
+            ?>
           </div>
         <?php } else { ?>
           <li><a href='login.php' class='login'>Login</a></li>

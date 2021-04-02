@@ -26,13 +26,22 @@ require_once 'includes/dbh.inc.php';
           <li>
             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= ($_SESSION['nameUser']) ?></a>
             <div class="dropdown-menu">
-              <a class="dropdown-item text-center" href="#">Profile</a>
+              <a class="dropdown-item text-center" href="user/pages-profile.php">Profile</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item text-center" href='includes/logout.inc.php' class='login'>Logout</a>
             </div>
           </li>
           <div>
-            <img class="img-profile rounded-circle" width="45px" src="assets/foto/<?= $_SESSION['photoUser'] ?>">
+            <?php
+            include "includes/dbh.inc.php";
+            $image_query = mysqli_query($conn, "SELECT usersPhoto FROM users WHERE usersId = '" . $_SESSION['idUser'] . "'");
+            while ($rows = mysqli_fetch_array($image_query)) {
+              $img_name = $rows["usersPhoto"];
+            ?>
+              <img class="img-profile rounded-circle" width="45px" height="45px" src="assets/foto/<?= $img_name ?>">
+            <?php
+            }
+            ?>
           </div>
         <?php } else { ?>
           <li><a href='login.php' class='login'>Login</a></li>
