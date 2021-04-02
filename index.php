@@ -24,7 +24,7 @@ include 'header.php';
           <li>
             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= ($_SESSION['nameUser']) ?></a>
             <div class="dropdown-menu">
-              <a class="dropdown-item text-center" href="#">Profile</a>
+              <a class="dropdown-item text-center" href="user/pages-profile.php">Profile</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item text-center" href='includes/logout.inc.php' class='login'>Logout</a>
             </div>
