@@ -22,7 +22,7 @@ include 'header.php';
         <?php
         if (isset($_SESSION["usernameUser"])) { ?>
           <li>
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= ($_SESSION['nameUser']) ?></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?= ($_SESSION["nameUser"]) ?></a>
             <div class="dropdown-menu">
               <a class="dropdown-item text-center" href="user/pages-profile.php">Profile</a>
               <div class="dropdown-divider"></div>
@@ -30,7 +30,7 @@ include 'header.php';
             </div>
           </li>
           <div>
-            <img class="img-profile rounded-circle" width="45px" src="assets/foto/<?= $_SESSION['photoUser'] ?>">
+            <img class="img-profile rounded-circle" width="45px" src="assets/foto/<?= $_SESSION["photoUser"] ?>">
           </div>
         <?php } else { ?>
           <li><a href='login.php' class='login'>Login</a></li>

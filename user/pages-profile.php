@@ -96,15 +96,18 @@ session_start();
                     <!-- Right side toggle and nav items -->
                     <!-- ============================================================== -->
                     <ul class="navbar-nav">
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="assets/images/users/1.jpg" alt="user" class="profile-pic me-2">Markarn Doe
-                            </a>
-                            <ul class="dropdown-menu show" aria-labelledby="navbarDropdown"></ul>
-                        </li>
+                        <?php
+                        if (isset($_SESSION["usernameUser"])) { ?>
+                            <!-- ============================================================== -->
+                            <!-- User profile and search -->
+                            <!-- ============================================================== -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="../assets/foto/<?= $_SESSION["photoUser"] ?>" alt="user" class="profile-pic me-2"><?= ($_SESSION["nameUser"]) ?>
+                                </a>
+                                <ul class="dropdown-menu show" aria-labelledby="navbarDropdown"></ul>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </nav>
@@ -124,6 +127,13 @@ session_start();
                         <!-- User Profile-->
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-profile.php" aria-expanded="false">
                                 <i class="me-3 fa fa-user" aria-hidden="true"></i><span class="hide-menu">Profil Saya</span></a>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="janji-saya.php" aria-expanded="false">
+                                <i class="me-3 fa fa-user" aria-hidden="true"></i><span class="hide-menu">Janji Saya</span></a>
+                        </li>
+                        <li class="text-center p-20 upgrade-btn">
+                            <a href='../includes/logout.inc.php' class="btn btn-danger text-white mt-4"><i class="mr-3 fas fa-power-off" aria-hidden="true"></i> Log out
+                            </a>
                         </li>
                     </ul>
 
