@@ -135,7 +135,7 @@ function loginUser($conn, $username, $password)
         exit();
     }
 
-    $usernameExists = usernameExists($conn, $username, $username, $username, $username);
+    $usernameExists = usernameExists($conn, $username, $username, $username, $username, $username, $username);
 
     if ($usernameExists == FALSE) {
         header("location: ../login.php?error=usernameDoesntExist");
@@ -153,6 +153,8 @@ function loginUser($conn, $username, $password)
         $_SESSION["idUser"] = $usernameExists["usersId"];
         $_SESSION["usernameUser"] = $usernameExists["usersUsername"];
         $_SESSION["nameUser"] = $usernameExists["usersName"];
+        $_SESSION["emailUser"] = $usernameExists["usersEmail"];
+        $_SESSION["phoneUser"] = $usernameExists["phoneNumber"];
         $_SESSION["photoUser"] = $usernameExists["usersPhoto"];
 
         header("location: ../index.php");

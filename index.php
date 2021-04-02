@@ -30,7 +30,7 @@ include 'header.php';
             </div>
           </li>
           <div>
-            <img class="img-profile rounded-circle" width="45px" src="assets/foto/<?= $_SESSION["photoUser"] ?>">
+            <img class="img-profile rounded-circle" width="45px" height="45px" src="assets/foto/<?= $_SESSION["photoUser"] ?>">
           </div>
         <?php } else { ?>
           <li><a href='login.php' class='login'>Login</a></li>

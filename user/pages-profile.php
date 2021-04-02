@@ -85,11 +85,11 @@ session_start();
                         <!-- Search -->
                         <!-- ============================================================== -->
 
-                        <li class="nav-item hidden-sm-down">
+                        <!-- <li class="nav-item hidden-sm-down">
                             <form class="app-search ps-3">
                                 <input type="text" class="form-control" placeholder="Search for..."> <a class="srh-btn"><i class="ti-search"></i></a>
                             </form>
-                        </li>
+                        </li> -->
                     </ul>
 
                     <!-- ============================================================== -->
@@ -155,12 +155,12 @@ session_start();
             <div class="page-breadcrumb">
                 <div class="row align-items-center">
                     <div class="col-md-6 col-8 align-self-center">
-                        <h3 class="page-title mb-0 p-0">Profile</h3>
+                        <h3 class="page-title mb-0 p-0">Profil Saya</h3>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Profile</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Profil Saya</li>
                                 </ol>
                             </nav>
                         </div>
@@ -183,23 +183,9 @@ session_start();
                     <div class="col-lg-4 col-xlg-3 col-md-5">
                         <div class="card">
                             <div class="card-body profile-card">
-                                <center class="mt-4"> <img src="assets/images/users/5.jpg" class="rounded-circle" width="150" />
-                                    <h4 class="card-title mt-2">Hanna Gover</h4>
-                                    <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
-                                    <div class="row justify-content-center">
-                                        <div class="col-4">
-                                            <a href="javascript:void(0)" class="link">
-                                                <i class="icon-people" aria-hidden="true"></i>
-                                                <span class="font-normal">254</span>
-                                            </a>
-                                        </div>
-                                        <div class="col-4">
-                                            <a href="javascript:void(0)" class="link">
-                                                <i class="icon-picture" aria-hidden="true"></i>
-                                                <span class="font-normal">54</span>
-                                            </a>
-                                        </div>
-                                    </div>
+                                <center class="mt-4"> <img src="../assets/foto/<?= $_SESSION["photoUser"] ?>" class="rounded-circle" width="150" />
+                                    <h4 class="card-title mt-2"><?= ($_SESSION["nameUser"]) ?></h4>
+                                    <h6 class="card-subtitle">Pasien</h6>
                                 </center>
                             </div>
                         </div>
@@ -209,17 +195,17 @@ session_start();
                     <div class="col-lg-8 col-xlg-9 col-md-7">
                         <div class="card">
                             <div class="card-body">
-                                <form class="form-horizontal form-material mx-2">
+                                <form enctype="multipart/form-data" action="includes/update-profile-user.inc.php" method="post" class="form-horizontal form-material mx-2">
                                     <div class="form-group">
                                         <label class="col-md-12 mb-0">Full Name</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Johnathan Doe" class="form-control ps-0 form-control-line">
+                                            <input type="text" placeholder="<?= $_SESSION["nameUser"] ?>" class="form-control ps-0 form-control-line">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="example-email" class="col-md-12">Email</label>
                                         <div class="col-md-12">
-                                            <input type="email" placeholder="johnathan@admin.com" class="form-control ps-0 form-control-line" name="example-email" id="example-email">
+                                            <input type="text" placeholder="<?= $_SESSION["emailUser"] ?>" class="form-control ps-0 form-control-line" name="example-email" id="example-email">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -229,28 +215,17 @@ session_start();
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12 mb-0">Phone No</label>
+                                        <label class="col-md-12 mb-0">Phone</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="123 456 7890" class="form-control ps-0 form-control-line">
+                                            <input type="text" placeholder="<?= $_SESSION["phoneUser"] ?>" class="form-control ps-0 form-control-line">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12 mb-0">Message</label>
+                                        <label class="col-md-12 mb-0">Profile Picture</label>
                                         <div class="col-md-12">
-                                            <textarea rows="5" class="form-control ps-0 form-control-line"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-12">Select Country</label>
-                                        <div class="col-sm-12 border-bottom">
-                                            <select class="form-select shadow-none border-0 ps-0 form-control-line">
-                                                <option>London</option>
-                                                <option>India</option>
-                                                <option>Usa</option>
-                                                <option>Canada</option>
-                                                <option>Thailand</option>
-                                            </select>
-                                        </div>
+                                            <img src="../assets/foto/<?= $_SESSION["photoUser"] ?>" width="150" />
+                                        </div><br>
+                                        <input type="file">
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12 d-flex">
