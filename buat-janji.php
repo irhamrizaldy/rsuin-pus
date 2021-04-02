@@ -140,6 +140,16 @@ include 'includes/dbh.inc.php';
                   </div>
                 </div>
                 <div class="form-group">
+                  <label class="col-sm-12 mb-0">Pilih Pembayaran</label>
+                  <div class="col-sm-12">
+                    <select class="form-control pl-2 pr-2 mt-2 form-control-line" name="pembayaran">
+                      <option value="Pribadi">Pribadi</option>
+                      <option value="BPJS">BPJS</option>
+                      <option value="Asuransi">Asuransi</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
                   <div class="col-sm-12 d-flex">
                     <button type="submit" name="submit" class="btn btn-success mx-auto mx-md-0 text-white">Buat Janji
                     </button>
@@ -166,8 +176,19 @@ include 'includes/dbh.inc.php';
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
 
-
+<!-- <script type="text/javascript">
+  function sweetAlert() {
+    Swal.fire({
+      type: 'success',
+      title: 'Oops...',
+      text: 'Something went wrong!'
+    })
+  }
+</script> -->
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
 </html>
