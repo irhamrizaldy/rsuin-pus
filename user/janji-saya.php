@@ -181,15 +181,15 @@ session_start();
                         </div>
                     </div>
                     <div class="d-md-flex">
-                        <button type="button" class="btn btn-outline-primary m-1 text-black">Semua</button>
-                        <button type="button" class="btn btn-outline-info m-1 text-black">Aktif</button>
-                        <button type="button" class="btn btn-outline-success m-1 text-black">Selesai</button>
-                        <button type="button" class="btn btn-outline-secondary m-1 text-black">Batal</button>
+                        <button type="button" id="bsemua" onclick="callSemua()" class="btn btn-outline-primary m-1 text-black">Semua</button>
+                        <button type="button" id="baktif" onclick="callAktif()" class="btn btn-outline-info m-1 text-black">Aktif</button>
+                        <button type="button" id="bselesai" onclick="callSelesai()" class="btn btn-outline-success m-1 text-black">Selesai</button>
+                        <button type="button" id="bbatal" onclick="callBatal()" class="btn btn-outline-secondary m-1 text-black">Batal</button>
                     </div>
                 </div>
             </div>
             <div class="container-fluid pt-0">
-                <div class="row">
+                <div class="row" id="queuerow">
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
@@ -197,19 +197,197 @@ session_start();
                                     <table class="table stylish-table no-wrap">
                                         <thead>
                                             <tr>
-                                                <th class="border-top-0">No</th>
-                                                <th class="border-top-0">Dokter</th>
+                                                <th class="border-top-0 col-1">No</th>
+                                                <th class="border-top-0 col-3">Dokter</th>
                                                 <th class="border-top-0">Jadwal</th>
-                                                <th class="border-top-0">Status</th>
-                                                <th class="border-top-0">Detail</th>
+                                                <th class="border-top-0 col-3">Status</th>
+                                                <th class="border-top-0 col-2">Detail</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-
-
                                             <?php
                                             include "dbh.inc.php";
-                                            $sql = "SELECT appointment.id_dokter AS ap_iddoc, appointment.id_jadwal AS ap_jadwal, schedule.idSchedule AS sc_jadwal, schedule.dateSchedule AS sc_date, schedule.daySchedule AS sc_day, schedule.starttime AS sc_time, doctors.id_dokter AS doc_iddoc, doctors.nama_dokter AS doc_name, status_janji, id_pendaftaran, pembayaran FROM appointment INNER JOIN schedule ON appointment.id_jadwal = schedule.idSchedule INNER JOIN doctors ON appointment.id_dokter = doctors.id_dokter WHERE id_user = '" . $_SESSION['idUser'] . "'";
+                                            $sql = "SELECT appointment.id_dokter AS ap_iddoc, appointment.id_jadwal AS ap_jadwal, schedule.idSchedule AS sc_jadwal, schedule.dateSchedule AS sc_date, schedule.daySchedule AS sc_day, schedule.starttime AS sc_time, doctors.id_dokter AS doc_iddoc, doctors.nama_dokter AS doc_name, status_janji, id_pendaftaran, pembayaran FROM appointment INNER JOIN schedule ON appointment.id_jadwal = schedule.idSchedule INNER JOIN doctors ON appointment.id_dokter = doctors.id_dokter WHERE id_user = '" . $_SESSION['idUser'] . "' AND status_janji = 'queue'";
+                                            $no = 0;
+                                            $app_query = mysqli_query($conn, $sql);
+                                            while ($rows = mysqli_fetch_array($app_query)) {
+                                                $no++;
+                                                $id_app = $rows["id_pendaftaran"];
+                                                $payment = $rows["pembayaran"];
+                                                $name_doc = $rows["doc_name"];
+                                                $sc_date = $rows["sc_date"];
+                                                $sc_day = $rows["sc_day"];
+                                                $sc_time = $rows["sc_time"];
+                                                $status = $rows["status_janji"];
+                                            ?>
+                                                <tr>
+                                                    <!-- <td style="width:50px;"><span class="round">D</span></td> -->
+                                                    <td class="align-middle"><?= $no ?></td>
+                                                    <td class="align-middle"><?= $name_doc ?></td>
+                                                    <td class="align-middle"><?= $sc_day ?>, <?= $sc_date ?></td>
+                                                    <td class="align-middle"><?= $status ?></td>
+                                                    <td class="align-middle"><button type="button" class="btn btn-success text-white" data-toggle="modal" data-target="#myModal<?= $id_app ?>">Click here</button></td>
+                                                </tr>
+                                                <div class="modal fade" id="myModal<?= $id_app ?>" role="dialog">
+                                                    <div class="modal-dialog">
+                                                        <!-- Modal content-->
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title">Detail Janji Pasien</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form role="form">
+                                                                    <div class="form-group">
+                                                                        <label>Dokter</label>
+                                                                        <input type="text" name="ndokter" class="form-control" value="<?= $name_doc ?>" disabled>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Waktu</label>
+                                                                        <input type="text" name="waktu" class="form-control" value="<?= $sc_day ?> - <?= $sc_time ?> , <?= $sc_date ?>" disabled>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Pasien</label>
+                                                                        <input type="text" name="npasien" class="form-control" value="<?= $_SESSION["nameUser"] ?>" disabled>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Email</label>
+                                                                        <input type="email" name="epasien" class="form-control" value="<?= $_SESSION["emailUser"] ?>" disabled>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Telepon</label>
+                                                                        <input type="text" name="tpasien" class="form-control" value="<?= $_SESSION["phoneUser"] ?>" disabled>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Metode Pembayaran</label>
+                                                                        <input type="text" name="mpasien" class="form-control" value="<?= $payment ?>" disabled>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-default text-white" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            <?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="donerow">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive mt">
+                                    <table class="table stylish-table no-wrap">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-top-0 col-1">No</th>
+                                                <th class="border-top-0 col-3">Dokter</th>
+                                                <th class="border-top-0">Jadwal</th>
+                                                <th class="border-top-0 col-3">Status</th>
+                                                <th class="border-top-0 col-2">Detail</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            include "dbh.inc.php";
+                                            $sql = "SELECT appointment.id_dokter AS ap_iddoc, appointment.id_jadwal AS ap_jadwal, schedule.idSchedule AS sc_jadwal, schedule.dateSchedule AS sc_date, schedule.daySchedule AS sc_day, schedule.starttime AS sc_time, doctors.id_dokter AS doc_iddoc, doctors.nama_dokter AS doc_name, status_janji, id_pendaftaran, pembayaran FROM appointment INNER JOIN schedule ON appointment.id_jadwal = schedule.idSchedule INNER JOIN doctors ON appointment.id_dokter = doctors.id_dokter WHERE id_user = '" . $_SESSION['idUser'] . "' AND status_janji = 'done'";
+                                            $no = 0;
+                                            $app_query = mysqli_query($conn, $sql);
+                                            while ($rows = mysqli_fetch_array($app_query)) {
+                                                $no++;
+                                                $id_app = $rows["id_pendaftaran"];
+                                                $payment = $rows["pembayaran"];
+                                                $name_doc = $rows["doc_name"];
+                                                $sc_date = $rows["sc_date"];
+                                                $sc_day = $rows["sc_day"];
+                                                $sc_time = $rows["sc_time"];
+                                                $status = $rows["status_janji"];
+                                            ?>
+                                                <tr>
+                                                    <!-- <td style="width:50px;"><span class="round">D</span></td> -->
+                                                    <td class="align-middle"><?= $no ?></td>
+                                                    <td class="align-middle"><?= $name_doc ?></td>
+                                                    <td class="align-middle"><?= $sc_day ?>, <?= $sc_date ?></td>
+                                                    <td class="align-middle"><?= $status ?></td>
+                                                    <td class="align-middle"><button type="button" class="btn btn-success text-white" data-toggle="modal" data-target="#myModal<?= $id_app ?>">Click here</button></td>
+                                                </tr>
+                                                <div class="modal fade" id="myModal<?= $id_app ?>" role="dialog">
+                                                    <div class="modal-dialog">
+                                                        <!-- Modal content-->
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title">Detail Janji Pasien</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form role="form">
+                                                                    <div class="form-group">
+                                                                        <label>Dokter</label>
+                                                                        <input type="text" name="ndokter" class="form-control" value="<?= $name_doc ?>" disabled>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Waktu</label>
+                                                                        <input type="text" name="waktu" class="form-control" value="<?= $sc_day ?> - <?= $sc_time ?> , <?= $sc_date ?>" disabled>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Pasien</label>
+                                                                        <input type="text" name="npasien" class="form-control" value="<?= $_SESSION["nameUser"] ?>" disabled>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Email</label>
+                                                                        <input type="email" name="epasien" class="form-control" value="<?= $_SESSION["emailUser"] ?>" disabled>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Telepon</label>
+                                                                        <input type="text" name="tpasien" class="form-control" value="<?= $_SESSION["phoneUser"] ?>" disabled>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Metode Pembayaran</label>
+                                                                        <input type="text" name="mpasien" class="form-control" value="<?= $payment ?>" disabled>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-default text-white" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            <?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="cancelrow">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive mt">
+                                    <table class="table stylish-table no-wrap">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-top-0 col-1">No</th>
+                                                <th class="border-top-0 col-3">Dokter</th>
+                                                <th class="border-top-0">Jadwal</th>
+                                                <th class="border-top-0 col-3">Status</th>
+                                                <th class="border-top-0 col-2">Detail</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            include "dbh.inc.php";
+                                            $sql = "SELECT appointment.id_dokter AS ap_iddoc, appointment.id_jadwal AS ap_jadwal, schedule.idSchedule AS sc_jadwal, schedule.dateSchedule AS sc_date, schedule.daySchedule AS sc_day, schedule.starttime AS sc_time, doctors.id_dokter AS doc_iddoc, doctors.nama_dokter AS doc_name, status_janji, id_pendaftaran, pembayaran FROM appointment INNER JOIN schedule ON appointment.id_jadwal = schedule.idSchedule INNER JOIN doctors ON appointment.id_dokter = doctors.id_dokter WHERE id_user = '" . $_SESSION['idUser'] . "' AND status_janji = 'canceled'";
                                             $no = 0;
                                             $app_query = mysqli_query($conn, $sql);
                                             while ($rows = mysqli_fetch_array($app_query)) {
@@ -325,5 +503,46 @@ session_start();
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script>
+    function callSemua() {
+        $(document).ready(function() {
+            $('#bsemua').click(function() {
+                $('#queuerow').show();
+                $('#donerow').show();
+                $('#cancelrow').show();
+            });
+        });
+    }
+
+    function callAktif() {
+        $(document).ready(function() {
+            $('#baktif').click(function() {
+                $('#queuerow').show();
+                $('#donerow').hide();
+                $('#cancelrow').hide();
+            });
+        });
+    }
+
+    function callSelesai() {
+        $(document).ready(function() {
+            $('#bselesai').click(function() {
+                $('#queuerow').hide();
+                $('#donerow').show();
+                $('#cancelrow').hide();
+            });
+        });
+    }
+
+    function callBatal() {
+        $(document).ready(function() {
+            $('#bbatal').click(function() {
+                $('#queuerow').hide();
+                $('#donerow').hide();
+                $('#cancelrow').show();
+            });
+        });
+    }
+</script>
 
 </html>
