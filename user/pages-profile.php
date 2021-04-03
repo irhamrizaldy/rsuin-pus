@@ -56,17 +56,15 @@ session_start();
                     <!-- ============================================================== -->
                     <a class="navbar-brand" href="../index.php">
                         <!-- Logo icon -->
-                        <b class="logo-icon">
-                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                            <!-- Dark Logo icon -->
-
-                        </b>
+                        <!-- <b class="logo-icon"> -->
+                        <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                        <!-- Dark Logo icon -->
+                        <!-- </b> -->
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
                             <!-- dark Logo text -->
-                            <img src="../admin/assets/images/logo-text.JPG" alt="homepage" class="dark-logo" />
-
+                            <img src="../admin/assets/images/logo-rs.JPG" alt="homepage" height="70px" width="230px" />
                         </span>
                     </a>
                     <!-- ============================================================== -->
