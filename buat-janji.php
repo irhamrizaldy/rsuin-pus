@@ -9,7 +9,7 @@ include 'includes/dbh.inc.php';
 <header id="header" class="fixed-top">
   <div class="container d-flex align-items-center">
 
-    <h1 class="logo mr-auto"><a href="index.php">RS AAA<span>.</span></a></h1>
+    <h1 class="logo mr-auto"><a href="index.php">RS Hera Palace<span>.</span></a></h1>
     <!-- Uncomment below if you prefer to use an image logo -->
     <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
 
