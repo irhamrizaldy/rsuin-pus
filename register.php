@@ -41,10 +41,10 @@
         </div>
         <div>
           <input type="password" id="repeatpassword" name="repeatpassword" class="fadeIn third" placeholder="repeat password" required>
-        </div>
+        </div><br>
         <div>
-          <input type="file" id="foto" name="foto" class="fadeIn third" placeholder="foto">
-        </div>
+          <input type="file" id="foto" name="foto" class="fadeIn third" placeholder="foto" oninvalid="setCustomValidity('You need profile image for identity')" oninput="setCustomValidity('')" required>
+        </div><br>
         <input type="submit" class="fadeIn fourth" value="Register" name="submit">
       </form>
       <!-- Remind Passowrd -->
