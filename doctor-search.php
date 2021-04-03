@@ -94,7 +94,7 @@ if (isset($_POST['search'])) {
         <div class='section-title'>
           <h2>Doctors</h2>
           <h3>Cari Jadwal <span>Dokter</span></h3>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+          <!-- <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p> -->
         </div>
 
         <div class='row'>
@@ -109,7 +109,17 @@ if (isset($_POST['search'])) {
               <div class='member'>
 
                 <div class='member-img'>
-                  <img src='assets/img/team/team-1.jpg' class='img-fluid' alt=''>
+                  <?php
+                  $all_images = glob("assets/img/team/{*.jpg}", GLOB_BRACE);
+                  shuffle($all_images);
+                  $images = array();
+                  foreach ($all_images as $index => $image) {
+                    if ($index == 1) break;  // Only print 15 images
+                    $image_name = basename($image);
+                    // echo "<img src='/images/photos/{$image_name}' />";
+                    echo "<img src='assets/img/team/{$image_name}' class='img-fluid' alt='' height='400px' width='300px'>";
+                  }
+                  ?>
                   <div class='social'>
                     <a href="buat-janji.php?id=<?= $dokter_id ?>" style="width: 80px;">Buat Janji</a>
                   </div>
