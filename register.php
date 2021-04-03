@@ -34,7 +34,7 @@
           <input type="email" id="email" name="email" class="fadeIn third" placeholder="email" oninvalid="setCustomValidity('The email should be in the format: @mail')" oninput="setCustomValidity('')" required>
         </div>
         <div>
-          <input type="text" id="phone" name="phone" class="fadeIn third" placeholder="phone number" pattern="[0-9]{10-12}" oninvalid="setCustomValidity('Please enter your phone number as a numerical value')" oninput="setCustomValidity('')" required>
+          <input type="text" id="phone" name="phone" class="fadeIn third" placeholder="phone number" pattern="[0-9]{4}[0-9]{4}[0-9]{4}" oninvalid="setCustomValidity('Enter 12 numerical value as a phone number')" oninput="setCustomValidity('')" required>
         </div>
         <div>
           <input type="password" id="password" name="password" class="fadeIn third" placeholder="password" minlength="5" oninvalid="setCustomValidity('Password should be at least 5 characters')" oninput="setCustomValidity('')" required>
