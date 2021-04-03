@@ -37,7 +37,15 @@ require_once 'includes/dbh.inc.php';
             while ($rows = mysqli_fetch_array($image_query)) {
               $img_name = $rows["usersPhoto"];
             ?>
-              <img class="img-profile rounded-circle" width="45px" height="45px" src="assets/foto/<?= $img_name ?>">
+              <style>
+                .myimg {
+                  width: 45px;
+                  height: 45px;
+                  object-fit: cover;
+                  border-radius: 50%;
+                }
+              </style>
+              <img class="myimg" src="assets/foto/<?= $img_name ?>">
             <?php
             }
             ?>

@@ -52,17 +52,17 @@ include_once '../../includes/dbh.inc.php';
                     <!-- ============================================================== -->
                     <a class="navbar-brand" href="index.html">
                         <!-- Logo icon -->
-                        <b class="logo-icon">
-                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                            <!-- Dark Logo icon -->
+                        <!-- <b class="logo-icon"> -->
+                        <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                        <!-- Dark Logo icon -->
 
-                        </b>
+                        <!-- </b> -->
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
                             <!-- dark Logo text -->
-                            <img src="../assets/images/logo-text.jpg" alt="homepage" class="dark-logo" />
-
+                            <!-- <img src="../assets/images/logo-text.jpg" alt="homepage" class="dark-logo" /> -->
+                            <img src="../assets/images/logo-rss.JPG" alt="homepage" height="50px" width="200px" />
                         </span>
                     </a>
                     <!-- ============================================================== -->

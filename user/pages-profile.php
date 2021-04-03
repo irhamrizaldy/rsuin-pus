@@ -112,7 +112,15 @@ session_start();
                                     while ($rows = mysqli_fetch_array($image_query)) {
                                         $img_name = $rows["usersPhoto"];
                                     ?>
-                                        <img src="../assets/foto/<?= $img_name ?>" alt="user" class="profile-pic me-2"><?= ($_SESSION["nameUser"]) ?>
+                                        <style>
+                                            .profile-pict {
+                                                width: 35px;
+                                                height: 35px;
+                                                object-fit: cover;
+                                                border-radius: 50%;
+                                            }
+                                        </style>
+                                        <img src="../assets/foto/<?= $img_name ?>" alt="user" class="profile-pict">&nbsp;<?= ($_SESSION["nameUser"]) ?>
                                     <?php
                                     }
                                     ?>
@@ -248,7 +256,15 @@ session_start();
                                 while ($rows = mysqli_fetch_array($image_query)) {
                                     $img_name = $rows["usersPhoto"];
                                 ?>
-                                    <center class="mt-4"> <img src="../assets/foto/<?= $img_name ?>" class="rounded-circle" width="150" />
+                                    <style>
+                                        .display-profile-pict {
+                                            width: 150px;
+                                            height: 150px;
+                                            object-fit: cover;
+                                            border-radius: 50%;
+                                        }
+                                    </style>
+                                    <center class="mt-4"> <img src="../assets/foto/<?= $img_name ?>" class="display-profile-pict" />
                                     <?php
                                 }
                                     ?>

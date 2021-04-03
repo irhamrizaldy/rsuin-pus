@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2021 at 11:25 AM
+-- Generation Time: Apr 03, 2021 at 06:22 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -52,7 +52,9 @@ INSERT INTO `appointment` (`id_pendaftaran`, `id_user`, `id_dokter`, `id_jadwal`
 (8, 9, 0, 3, 'hadah', 'hadah', '', 'queue'),
 (41, 43, 1, 2, '1', '2', 'Pribadi', 'done'),
 (43, 43, 2, 4, '2', '3', 'Pribadi', 'canceled'),
-(45, 43, 4, 6, 'ad', 'sd', 'BPJS', 'queue');
+(45, 43, 4, 6, 'ad', 'sd', 'BPJS', 'queue'),
+(46, 43, 2, 4, 'w', 'w', 'Pribadi', 'done'),
+(47, 43, 4, 6, '3', '4', 'Pribadi', 'canceled');
 
 -- --------------------------------------------------------
 
@@ -74,8 +76,7 @@ CREATE TABLE `checkup` (
 --
 
 INSERT INTO `checkup` (`id_checkup`, `id_user`, `paket`, `tanggal`, `pesan`, `status_checkup`) VALUES
-(1, 9, 'Woman Silver Packet', '2021-01-05', 'halohlao', 'queue'),
-(2, 15, 'Woman Gold Packet', '2021-03-04', '123', 'queue');
+(1, 9, 'Woman Silver Packet', '2021-01-05', 'halohlao', 'queue');
 
 -- --------------------------------------------------------
 
@@ -103,7 +104,6 @@ INSERT INTO `doctors` (`id_dokter`, `nama_dokter`, `email_dokter`, `spesialisasi
 (4, 'dr. hihihi', 'hihihi@gmail.com', 'Kanker', '08123456789', 'jakarta'),
 (5, 'dr. lalala', 'lalala@gmail.com', 'Penyakit Dalam', '0871513545', 'a'),
 (6, 'dr. oi', 'oi@gmail.com', 'Jantung', '087702840399', 'jakarta'),
-(7, 'a', 'a@gmail.com', 'Penyakit Dalam', 'abcde', 'surabaya'),
 (8, 'dr. ku', 'ku@gmail.com', 'Paru-paru', '0871513545212', 'surabaya');
 
 -- --------------------------------------------------------
@@ -128,7 +128,6 @@ CREATE TABLE `schedule` (
 
 INSERT INTO `schedule` (`idSchedule`, `idDoctors`, `dateSchedule`, `daySchedule`, `starttime`, `endtime`, `avail`) VALUES
 (2, 1, '2020-12-25', 'Wednesday', '13:00:00', '00:00:00', 'available'),
-(3, 1, '2021-01-09', 'Friday', '12:00:00', '12:30:00', 'available'),
 (4, 2, '2020-12-27', 'Saturday', '12:00:00', '00:00:00', 'available'),
 (5, 3, '2021-01-25', 'Monday', '08:30:00', '09:45:00', 'available'),
 (6, 4, '2021-01-09', 'Thursday', '12:00:00', '09:45:00', 'available'),
@@ -189,7 +188,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`usersId`, `usersName`, `usersUsername`, `usersEmail`, `phoneNumber`, `usersPassword`, `usersPhoto`) VALUES
 (9, 'zakky okky', 'zakky', 'zakky.okky@gmail.com', '087702840399', '$2y$10$xeG0p4oQ8gBPxTKv51Y0K.AuTeype0IexrbMQNPsrwLTkouI1GG32', ''),
 (11, 'papapapap', 'luluk', 'luluk@gmail.com', '087702840399', '$2y$10$BqLMSzvxoPStCnHNK9iFS.ydVMUqXOYMBmaAwKVJB95gmqkbjgK1O', ''),
-(43, 'napiul', 'napiul', 'napiul@coding.com', '321123321', '$2y$10$AChbSNsrrKY4ucVuuC.Y9eMv8dXKJddRD4yxe4b27qpSOamaXBkVS', '402-34884640_2053546474719184_3869924340111769600_n.jpg');
+(43, 'napiul', 'napiul', 'napiul@coding.com', '321123321', '$2y$10$AChbSNsrrKY4ucVuuC.Y9eMv8dXKJddRD4yxe4b27qpSOamaXBkVS', '969-aac3100bc12eef18acbd99a23ae48758.jpg');
 
 --
 -- Indexes for dumped tables
@@ -239,7 +238,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id_pendaftaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id_pendaftaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `checkup`
@@ -263,7 +262,7 @@ ALTER TABLE `schedule`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `usersId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `usersId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
