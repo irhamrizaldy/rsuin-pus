@@ -16,7 +16,6 @@ include 'header.php';
 
         <li class="active"><a href="index.php#services">Services</a>
         </li>
-        <li><a href="index.php#testimonials">Testimonials</a></li>
         <li><a href="index.php#portofolio">Artikel</a></li>
         <li><a href="index.php#contact">Contact</a></li>
         <?php

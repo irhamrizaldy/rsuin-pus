@@ -17,7 +17,6 @@ include 'header.php';
 
         <li><a href="#services">Services</a>
         </li>
-        <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
         <?php
         if (isset($_SESSION["usernameUser"])) { ?>
@@ -229,169 +228,10 @@ include 'header.php';
     </div>
   </section><!-- End Services Section -->
 
-  <!-- ======= Testimonials Section ======= -->
-  <section id="testimonials" class="testimonials">
-    <div class="container" data-aos="zoom-in">
-
-      <div class="owl-carousel testimonials-carousel">
-
-        <div class="testimonial-item">
-          <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-          <h3>Jeo Dan Tae</h3>
-          <h4>Ceo &amp; Founder</h4>
-          <p>
-            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-            sdfghjhgfdsexdcfvgbnjnhbgvfcdxsxdcfgbhjnmnhgtfdsedrftghnjhbgvfdr.
-            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-          </p>
-        </div>
-
-        <div class="testimonial-item">
-          <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-          <h3>Shim Soo ryeon</h3>
-          <h4>Designer</h4>
-          <p>
-            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-            awesrtfhujijmnbhvgcfdzsertyujikjknhbgcfdsedrtfyhujikmjhbgvfcdr.
-            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-          </p>
-        </div>
-
-        <div class="testimonial-item">
-          <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-          <h3>Oh Yoon Hee</h3>
-          <h4>Store Owner</h4>
-          <p>
-            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-            serdtfyghjnbhgvcfdxsdcvbnbvyctrxthwertyuioplkjhgfzzxcvbn.
-            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-          </p>
-        </div>
-
-        <div class="testimonial-item">
-          <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-          <h3>Ha Yoon Chul</h3>
-          <h4>Freelancer</h4>
-          <p>
-            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-            aweedrtgjikjhgfdxsdcvbnmbvcfdswertyuiojhgfhjkmnjbhgftyui.
-            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-          </p>
-        </div>
-
-        <div class="testimonial-item">
-          <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-          <h3>John Larson</h3>
-          <h4>Seok hoon</h4>
-          <p>
-            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-            wertyuioihgfdsadcvbnmbvcxsrtyuiuytresfghbvb
-            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-  </section><!-- End Testimonials Section -->
-
-  <!-- ======= Portfolio Section ======= -->
-
-
-  <!-- ======= Team Section ======= -->
-  <section id="team" class="team section-bg">
-    <div class="container" data-aos="fade-up">
-
-      <div class="section-title">
-        <h2>Team</h2>
-        <h3>Our Hardworking <span>Team</span></h3>
-        <p>Team yang kece-kece</p>
-      </div>
-
-      <div class="row">
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-          <div class="member">
-            <div class="member-img">
-              <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="icofont-twitter"></i></a>
-                <a href=""><i class="icofont-facebook"></i></a>
-                <a href=""><i class="icofont-instagram"></i></a>
-                <a href=""><i class="icofont-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Han Ji Pyeong</h4>
-              <span>Chief Executive Officer</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-          <div class="member">
-            <div class="member-img">
-              <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="icofont-twitter"></i></a>
-                <a href=""><i class="icofont-facebook"></i></a>
-                <a href=""><i class="icofont-instagram"></i></a>
-                <a href=""><i class="icofont-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Seo Dal mi</h4>
-              <span>Product Manager</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-          <div class="member">
-            <div class="member-img">
-              <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="icofont-twitter"></i></a>
-                <a href=""><i class="icofont-facebook"></i></a>
-                <a href=""><i class="icofont-instagram"></i></a>
-                <a href=""><i class="icofont-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Nam Do San</h4>
-              <span>CTO</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-          <div class="member">
-            <div class="member-img">
-              <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="icofont-twitter"></i></a>
-                <a href=""><i class="icofont-facebook"></i></a>
-                <a href=""><i class="icofont-instagram"></i></a>
-                <a href=""><i class="icofont-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Woo In Jae</h4>
-              <span>Accountant</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section><!-- End Team Section -->
-
-
   <!-- ======= Frequently Asked Questions Section ======= -->
 
   <!-- ======= Contact Section ======= -->
-  <section id="contact" class="contact">
+  <section id="contact" class="contact p-0">
     <div class="container" data-aos="fade-up">
 
       <div class="section-title">

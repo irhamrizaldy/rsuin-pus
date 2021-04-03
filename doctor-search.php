@@ -18,7 +18,6 @@ require_once 'includes/dbh.inc.php';
 
         <li class="active"><a href="doctor-search.php">Services</a>
         </li>
-        <li><a href="index.php">Testimonials</a></li>
         <li><a href="index.php">Artikel</a></li>
         <li><a href="index.php">Contact</a></li>
         <?php

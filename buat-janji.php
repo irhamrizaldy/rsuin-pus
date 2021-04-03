@@ -20,7 +20,6 @@ include 'includes/dbh.inc.php';
 
         <li class="active"><a href="buat-janji.php">Services</a>
         </li>
-        <li><a href="index.php">Testimonials</a></li>
         <li><a href="index.php">Artikel</a></li>
         <li><a href="index.php">Contact</a></li>
         <?php
