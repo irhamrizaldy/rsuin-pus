@@ -64,7 +64,7 @@ session_start();
                         <!-- Logo text -->
                         <span class="logo-text">
                             <!-- dark Logo text -->
-                            <img src="../admin/assets/images/logo-rs.JPG" alt="homepage" height="70px" width="230px" />
+                            <img src="../admin/assets/images/logo-rss.JPG" alt="homepage" height="50px" width="200px" />
                         </span>
                     </a>
                     <!-- ============================================================== -->
