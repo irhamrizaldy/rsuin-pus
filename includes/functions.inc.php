@@ -103,31 +103,8 @@ function createUser($conn, $name, $username, $email, $phone, $password, $img)
         $rand_number = rand(1, 999);
         $new_img_name = $rand_number . '-' . $img;
         if (in_array($ext, $allowed_ext) === true) {
-            move_uploaded_file($file_temp, 'C:/xampp/htdocs/rumahsakit/assets/foto/' . $new_img_name);
+            move_uploaded_file($file_temp, '../assets/foto/' . $new_img_name);
             $query = "INSERT INTO users (usersName, usersUsername, usersEmail, phoneNumber, usersPassword, usersPhoto) VALUES ('$name', '$username', '$email', '$phone', '$hashedPassword', '$new_img_name')";
-            $result = mysqli_query($conn, $query);
-            if ($result) {
-                header("location: ../login.php?error=none");
-                exit();
-            }
-        }
-    }
-}
-
-function updateUser($conn, $name, $email, $phone, $password, $img)
-{
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-    if ($img != "") {
-        $allowed_ext = array('png', 'jpg', 'jpeg');
-        $x = explode('.', $img);
-        $ext = strtolower(end($x));
-        $file_temp = $_FILES['foto']['tmp_name'];
-        $rand_number = rand(1, 999);
-        $new_img_name = $rand_number . '-' . $img;
-        if (in_array($ext, $allowed_ext) === true) {
-            move_uploaded_file($file_temp, 'C:/xampp/htdocs/rumahsakit/assets/foto/' . $new_img_name);
-            $query = "UPDATE users SET usersName='" . $name . "', usersEmail='" . $email . "', phoneNumber='" . $phone . "', usersPassword='" . $hashedPassword . "', usersPhoto='" . $new_img_name . "' WHERE usersId = '" . $_SESSION['idUser'] . "'";
             $result = mysqli_query($conn, $query);
             if ($result) {
                 header("location: ../login.php?error=none");
