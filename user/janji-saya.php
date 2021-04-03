@@ -51,7 +51,7 @@ session_start();
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="../index.php">
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -193,22 +193,35 @@ session_start();
                                     <table class="table stylish-table no-wrap">
                                         <thead>
                                             <tr>
-                                                <th class="border-top-0" colspan="2">Dokter</th>
+                                                <th class="border-top-0">No</th>
+                                                <th class="border-top-0">Dokter</th>
                                                 <th class="border-top-0">Jadwal</th>
-                                                <th class="border-top-0">Tempat</th>
                                                 <th class="border-top-0">Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td style="width:50px;"><span class="round">S</span></td>
-                                                <td class="align-middle">
-                                                    <h6>Sunil Joshi</h6><small class="text-muted">Web Designer</small>
-                                                </td>
-                                                <td class="align-middle">Elite Admin</td>
-                                                <td class="align-middle">$3.9K</td>
-                                                <td class="align-middle">Queue</td>
-                                            </tr>
+
+
+                                            <?php
+                                            include "dbh.inc.php";
+                                            $sql = "SELECT appointment.id_dokter AS ap_iddoc, doctors.id_dokter AS doc_iddoc, doctors.nama_dokter AS doc_name, status_janji, id_pendaftaran FROM appointment INNER JOIN doctors ON appointment.id_dokter = doctors.id_dokter WHERE id_user = '" . $_SESSION['idUser'] . "'";
+                                            $app_query = mysqli_query($conn, $sql);
+                                            while ($rows = mysqli_fetch_array($app_query)) {
+                                                $no = $rows["id_pendaftaran"];
+                                                $name_doc = $rows["doc_name"];
+                                                $name_doc = $rows["doc_name"];
+                                                $status = $rows["status_janji"];
+                                            ?>
+                                                <tr>
+                                                    <!-- <td style="width:50px;"><span class="round">D</span></td> -->
+                                                    <td class="align-middle"><?= $no ?></td>
+                                                    <td class="align-middle"><?= $name_doc ?></td>
+                                                    <td class="align-middle"><?= $name_doc ?></td>
+                                                    <td class="align-middle"><?= $status ?></td>
+                                                </tr>
+                                            <?php
+                                            }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>

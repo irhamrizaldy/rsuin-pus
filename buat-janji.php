@@ -111,6 +111,17 @@ include 'includes/dbh.inc.php';
             ?>
               <form action="includes/appointment.inc.php" method="post" class="form-horizontal form-material">
                 <div class="form-group">
+                  <?php
+                  $iddoc = $_GET["id"];
+                  include "includes/dbh.inc.php";
+                  $qd = mysqli_query($conn, "SELECT * FROM doctors WHERE id_dokter = '$iddoc'");
+                  while ($rows = mysqli_fetch_array($qd)) {
+                    $dname = $rows["id_dokter"];
+                  ?>
+                    <input type="hidden" name="iddokter" id="iddokter" value="<?= $dname ?>">
+                  <?php
+                  }
+                  ?>
                   <label class="col-md-12 mb-0">Keluhan</label>
 
                   <div class="col-md-12">
