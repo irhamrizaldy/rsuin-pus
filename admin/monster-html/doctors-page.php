@@ -1,5 +1,5 @@
 <?php
-    require_once '../../includes/dbh.inc.php';
+require_once '../../includes/dbh.inc.php';
 ?>
 
 
@@ -11,12 +11,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords"
-        content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 4 admin, bootstrap 4, css3 dashboard, bootstrap 4 dashboard, Monsterlite admin bootstrap 4 dashboard, frontend, responsive bootstrap 4 admin template, Monster admin lite design, Monster admin lite dashboard bootstrap 4 dashboard template">
-    <meta name="description"
-        content="Monster Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="keywords" content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 4 admin, bootstrap 4, css3 dashboard, bootstrap 4 dashboard, Monsterlite admin bootstrap 4 dashboard, frontend, responsive bootstrap 4 admin template, Monster admin lite design, Monster admin lite dashboard bootstrap 4 dashboard template">
+    <meta name="description" content="Monster Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Monster Lite Template by WrapPixel</title>
+    <title>Doctors</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/monster-admin-lite/" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
@@ -43,8 +41,7 @@
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
-        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full" data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
@@ -75,8 +72,7 @@
                     <!-- ============================================================== -->
                     <!-- toggle and nav items -->
                     <!-- ============================================================== -->
-                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
-                        href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -84,8 +80,7 @@
                 <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
                     <ul class="navbar-nav d-none d-md-block d-lg-none">
                         <li class="nav-item">
-                            <a class="nav-toggler nav-link waves-effect waves-light text-white"
-                                href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                            <a class="nav-toggler nav-link waves-effect waves-light text-white" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                         </li>
                     </ul>
                     <!-- ============================================================== -->
@@ -97,7 +92,7 @@
                         <!-- ============================================================== -->
 
                         <li class="nav-item hidden-sm-down">
-                        <div style="color: white; margin-left: 20px; margin-top: 5px"> 
+                            <div style="color: white; margin-left: 20px; margin-top: 5px">
                                 <h4>Welcome Admin</h4>
                             </div>
                         </li>
@@ -111,9 +106,8 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="../../index.php" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                </a>
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="../../index.php" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -132,27 +126,15 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <!-- User Profile-->
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="doctors-page.php" aria-expanded="false">
-                                <i class="mr-3 fa fa-user" aria-hidden="true"></i><span
-                                    class="hide-menu">Doctors</span></a>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="doctors-page.php" aria-expanded="false">
+                                <i class="mr-3 fa fa-user" aria-hidden="true"></i><span class="hide-menu">Doctors</span></a>
                         </li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="table-basic.php" aria-expanded="false"><i class="mr-3 fa fa-table"
-                                    aria-hidden="true"></i><span class="hide-menu">Patient list</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="pages-blank.php" aria-expanded="false"><i class="mr-3 fa fa-columns"
-                                    aria-hidden="true"></i><span class="hide-menu">Schedule</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="appointment-page.php" aria-expanded="false"><i class="mr-3 fas fa-address-book"
-                                    aria-hidden="true"></i><span class="hide-menu">Appointment</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="checkup-page.php" aria-expanded="false"><i class="mr-3 fas fa-calendar-plus"
-                                    aria-hidden="true"></i><span class="hide-menu">Check Up</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="table-basic.php" aria-expanded="false"><i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu">Patient list</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-blank.php" aria-expanded="false"><i class="mr-3 fa fa-columns" aria-hidden="true"></i><span class="hide-menu">Schedule</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="appointment-page.php" aria-expanded="false"><i class="mr-3 fas fa-address-book" aria-hidden="true"></i><span class="hide-menu">Appointment</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="checkup-page.php" aria-expanded="false"><i class="mr-3 fas fa-calendar-plus" aria-hidden="true"></i><span class="hide-menu">Check Up</span></a></li>
                         <li class="text-center p-20 upgrade-btn">
-                            <a href="../../index.php"
-                                class="btn btn-danger text-white mt-4" target="_blank"><i class="mr-3 fas fa-power-off"
-                                    aria-hidden="true"></i>Log out
+                            <a href="../../index.php" class="btn btn-danger text-white mt-4" target="_blank"><i class="mr-3 fas fa-power-off" aria-hidden="true"></i>Log out
                             </a>
                         </li>
                     </ul>
@@ -185,8 +167,7 @@
                     </div>
                     <div class="col-md-6 col-4 align-self-center">
                         <div class="text-right upgrade-btn">
-                            <a href="https://wrappixel.com/templates/monsteradmin/"
-                                class="btn btn-success d-none d-md-inline-block text-white" target="_blank"><i class="mr-3 fas fa-sync"></i>Refresh
+                            <a href="https://wrappixel.com/templates/monsteradmin/" class="btn btn-success d-none d-md-inline-block text-white" target="_blank"><i class="mr-3 fas fa-sync"></i>Refresh
                             </a>
                         </div>
                     </div>
@@ -207,28 +188,25 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                            <h4 class="card-title">Add Doctors</h4>
+                                <h4 class="card-title">Add Doctors</h4>
                                 <form action="../../includes/doctors.inc.php" class="form-horizontal form-material" method="post">
                                     <div class="form-group">
                                         <label class="col-md-12 mb-0">Full Name</label>
                                         <div class="col-md-12">
-                                            <input type="text" 
-                                                class="form-control pl-0 form-control-line" name="fullName" required>
+                                            <input type="text" class="form-control pl-0 form-control-line" name="fullName" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="example-email" class="col-md-12">Email</label>
                                         <div class="col-md-12">
-                                            <input type="email" 
-                                                class="form-control pl-0 form-control-line" name="email"
-                                                id="example-email" required>
+                                            <input type="email" class="form-control pl-0 form-control-line" name="email" id="example-email" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12 mb-0">Speciality</label>
                                         <div class="col-md-12">
-                                        <select class="select form-control" id="scheduleday" name="speciality" required>
-                                        <?php
+                                            <select class="select form-control" id="scheduleday" name="speciality" required>
+                                                <?php
                                                 $sql = "SELECT * FROM spesialisasi;";
                                                 $result = mysqli_query($conn, $sql);
                                                 $check = mysqli_num_rows($result);
@@ -236,32 +214,28 @@
                                                 if ($check > 0) {
                                                     while ($rows = mysqli_fetch_assoc($result)) {
                                                         echo "<option>" . $rows['jenis_spesialisasi'] . "</option>";
-
-                                                        
                                                     }
                                                 }
-                                            ?>
-                                          </select>
+                                                ?>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12 mb-0">Phone No</label>
                                         <div class="col-md-12">
-                                            <input type="text" 
-                                                class="form-control pl-0 form-control-line" name="phone" required>
+                                            <input type="text" class="form-control pl-0 form-control-line" name="phone" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-12">City</label>
                                         <div class="col-sm-12">
-                                            <input type="text" 
-                                                class="form-control pl-0 form-control-line" name="city" required>
+                                            <input type="text" class="form-control pl-0 form-control-line" name="city" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12 d-flex">
                                             <button class="btn btn-success mx-auto mx-md-0 text-white" type="submit" name="submit-doctors">Submit
-                                                </button>
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -293,23 +267,23 @@
                                         </thead>
                                         <tbody>
                                             <?php
-                                                $sql = "SELECT * FROM doctors;";
-                                                $result = mysqli_query($conn, $sql);
-                                                $check = mysqli_num_rows($result);
+                                            $sql = "SELECT * FROM doctors;";
+                                            $result = mysqli_query($conn, $sql);
+                                            $check = mysqli_num_rows($result);
 
-                                                if ($check > 0) {
-                                                    while ($rows = mysqli_fetch_assoc($result)) {
-                                                        echo "<tr>";
-                                                            echo "<td>" . $rows['id_dokter'] . "</td>";
-                                                            echo "<td>" . $rows['nama_dokter'] . "</td>";
-                                                            echo "<td>" . $rows['email_dokter'] . "</td>";
-                                                            echo "<td>" . $rows['spesialisasi'] . "</td>";
-                                                            echo "<td>" . $rows['nomor_telepon'] . "</td>";
-                                                            echo "<td>" . $rows['kota'] . "</td>";
-                                                            echo "<td><a href='../../includes/delete-doctors.inc.php?id=$rows[id_dokter]'>Delete</a></td>";
-                                                        echo "</tr>";
-                                                    }
+                                            if ($check > 0) {
+                                                while ($rows = mysqli_fetch_assoc($result)) {
+                                                    echo "<tr>";
+                                                    echo "<td>" . $rows['id_dokter'] . "</td>";
+                                                    echo "<td>" . $rows['nama_dokter'] . "</td>";
+                                                    echo "<td>" . $rows['email_dokter'] . "</td>";
+                                                    echo "<td>" . $rows['spesialisasi'] . "</td>";
+                                                    echo "<td>" . $rows['nomor_telepon'] . "</td>";
+                                                    echo "<td>" . $rows['kota'] . "</td>";
+                                                    echo "<td><a href='../../includes/delete-doctors.inc.php?id=$rows[id_dokter]'>Delete</a></td>";
+                                                    echo "</tr>";
                                                 }
+                                            }
                                             ?>
                                         </tbody>
                                     </table>
