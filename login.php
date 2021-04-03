@@ -17,9 +17,9 @@
   <?php
   if (isset($_GET['error'])) {
     if ($_GET['error'] == "usernameDoesntExist") {
-      echo "<script> alert('Login gagal! Username belum terdaftar!') </script>";
+      echo "<script> alert('Login failed! Username doesnt exist') </script>";
     } else if ($_GET['error'] == "emptyinput") {
-      echo "<script> alert('Login gagal! Masukkan Username dan Password yang benar!') </script>";
+      echo "<script> alert('Login failed! Wrong Username and Password') </script>";
     }
   } ?>
   <div class="wrapper fadeInDown">
