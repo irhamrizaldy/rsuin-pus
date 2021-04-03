@@ -12,7 +12,7 @@ session_start();
     <meta name="keywords" content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Monsterlite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Monster admin lite design, Monster admin lite dashboard bootstrap 5 dashboard template">
     <meta name="description" content="Monster Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Monster Lite Template by WrapPixel</title>
+    <title>User Page</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/monster-admin-lite/" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
@@ -88,9 +88,9 @@ session_start();
                         <!-- ============================================================== -->
 
                         <li class="nav-item hidden-sm-down">
-                            <form class="app-search ps-3">
-                                <input type="text" class="form-control" placeholder="Search for..."> <a class="srh-btn"><i class="ti-search"></i></a>
-                            </form>
+                            <div style="color: white; margin-left: 20px; margin-top: 5px">
+                                <h4>Welcome, <?= $_SESSION["nameUser"] ?></h4>
+                            </div>
                         </li>
                     </ul>
 
@@ -204,19 +204,21 @@ session_start();
 
                                             <?php
                                             include "dbh.inc.php";
-                                            $sql = "SELECT appointment.id_dokter AS ap_iddoc, doctors.id_dokter AS doc_iddoc, doctors.nama_dokter AS doc_name, status_janji, id_pendaftaran FROM appointment INNER JOIN doctors ON appointment.id_dokter = doctors.id_dokter WHERE id_user = '" . $_SESSION['idUser'] . "'";
+                                            $sql = "SELECT appointment.id_dokter AS ap_iddoc, appointment.id_jadwal AS ap_jadwal, schedule.idSchedule AS sc_jadwal, schedule.dateSchedule AS sc_date, schedule.daySchedule AS sc_day, doctors.id_dokter AS doc_iddoc, doctors.nama_dokter AS doc_name, status_janji, id_pendaftaran FROM appointment INNER JOIN schedule ON appointment.id_jadwal = schedule.idSchedule INNER JOIN doctors ON appointment.id_dokter = doctors.id_dokter WHERE id_user = '" . $_SESSION['idUser'] . "'";
+                                            $no = 0;
                                             $app_query = mysqli_query($conn, $sql);
                                             while ($rows = mysqli_fetch_array($app_query)) {
-                                                $no = $rows["id_pendaftaran"];
+                                                $no++;
                                                 $name_doc = $rows["doc_name"];
-                                                $name_doc = $rows["doc_name"];
+                                                $sc_date = $rows["sc_date"];
+                                                $sc_day = $rows["sc_day"];
                                                 $status = $rows["status_janji"];
                                             ?>
                                                 <tr>
                                                     <!-- <td style="width:50px;"><span class="round">D</span></td> -->
                                                     <td class="align-middle"><?= $no ?></td>
                                                     <td class="align-middle"><?= $name_doc ?></td>
-                                                    <td class="align-middle"><?= $name_doc ?></td>
+                                                    <td class="align-middle"><?= $sc_day ?>, <?= $sc_date ?></td>
                                                     <td class="align-middle"><?= $status ?></td>
                                                 </tr>
                                             <?php

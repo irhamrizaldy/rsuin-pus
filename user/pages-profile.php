@@ -90,11 +90,11 @@ session_start();
                         <!-- Search -->
                         <!-- ============================================================== -->
 
-                        <!-- <li class="nav-item hidden-sm-down">
-                            <form class="app-search ps-3">
-                                <input type="text" class="form-control" placeholder="Search for..."> <a class="srh-btn"><i class="ti-search"></i></a>
-                            </form>
-                        </li> -->
+                        <li class="nav-item hidden-sm-down">
+                            <div style="color: white; margin-left: 20px; margin-top: 5px">
+                                <h4>Welcome, <?= $_SESSION["nameUser"] ?></h4>
+                            </div>
+                        </li>
                     </ul>
 
                     <!-- ============================================================== -->
