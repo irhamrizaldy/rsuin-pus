@@ -231,7 +231,7 @@ include 'header.php';
   <!-- ======= Frequently Asked Questions Section ======= -->
 
   <!-- ======= Contact Section ======= -->
-  <section id="contact" class="contact p-0">
+  <section id="contact" class="contact">
     <div class="container" data-aos="fade-up">
 
       <div class="section-title">
