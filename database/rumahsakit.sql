@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3307
--- Generation Time: Jan 10, 2021 at 04:38 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.13
+-- Host: 127.0.0.1
+-- Generation Time: Apr 03, 2021 at 11:25 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,9 +30,11 @@ SET time_zone = "+00:00";
 CREATE TABLE `appointment` (
   `id_pendaftaran` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
+  `id_dokter` int(11) NOT NULL,
   `id_jadwal` int(11) NOT NULL,
   `gejala` varchar(256) NOT NULL,
   `pesan` varchar(256) NOT NULL,
+  `pembayaran` varchar(255) NOT NULL,
   `status_janji` varchar(50) NOT NULL DEFAULT 'queue'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -40,14 +42,17 @@ CREATE TABLE `appointment` (
 -- Dumping data for table `appointment`
 --
 
-INSERT INTO `appointment` (`id_pendaftaran`, `id_user`, `id_jadwal`, `gejala`, `pesan`, `status_janji`) VALUES
-(1, 9, 2, 'sakit kepala', 'haiii', 'queue'),
-(3, 9, 9, 'alergi', 'halo', 'done'),
-(4, 9, 3, 'aduhh', 'aduh', 'queue'),
-(5, 9, 3, 'adah', 'adah', 'queue'),
-(6, 9, 2, 'idih', 'idih', 'queue'),
-(7, 9, 3, 'uduh', 'uduh', 'queue'),
-(8, 9, 3, 'hadah', 'hadah', 'queue');
+INSERT INTO `appointment` (`id_pendaftaran`, `id_user`, `id_dokter`, `id_jadwal`, `gejala`, `pesan`, `pembayaran`, `status_janji`) VALUES
+(1, 9, 0, 2, 'sakit kepala', 'haiii', '', 'done'),
+(3, 9, 0, 9, 'alergi', 'halo', '', 'queue'),
+(4, 9, 0, 3, 'aduhh', 'aduh', '', 'queue'),
+(5, 9, 0, 3, 'adah', 'adah', '', 'queue'),
+(6, 9, 0, 2, 'idih', 'idih', '', 'queue'),
+(7, 9, 0, 3, 'uduh', 'uduh', '', 'queue'),
+(8, 9, 0, 3, 'hadah', 'hadah', '', 'queue'),
+(41, 43, 1, 2, '1', '2', 'Pribadi', 'done'),
+(43, 43, 2, 4, '2', '3', 'Pribadi', 'canceled'),
+(45, 43, 4, 6, 'ad', 'sd', 'BPJS', 'queue');
 
 -- --------------------------------------------------------
 
@@ -69,7 +74,8 @@ CREATE TABLE `checkup` (
 --
 
 INSERT INTO `checkup` (`id_checkup`, `id_user`, `paket`, `tanggal`, `pesan`, `status_checkup`) VALUES
-(1, 9, 'Woman Silver Packet', '2021-01-05', 'halohlao', 'queue');
+(1, 9, 'Woman Silver Packet', '2021-01-05', 'halohlao', 'queue'),
+(2, 15, 'Woman Gold Packet', '2021-03-04', '123', 'queue');
 
 -- --------------------------------------------------------
 
@@ -121,7 +127,7 @@ CREATE TABLE `schedule` (
 --
 
 INSERT INTO `schedule` (`idSchedule`, `idDoctors`, `dateSchedule`, `daySchedule`, `starttime`, `endtime`, `avail`) VALUES
-(2, 1, '2020-12-25', 'Wednesday', '13:00:00', '00:00:00', 'full'),
+(2, 1, '2020-12-25', 'Wednesday', '13:00:00', '00:00:00', 'available'),
 (3, 1, '2021-01-09', 'Friday', '12:00:00', '12:30:00', 'available'),
 (4, 2, '2020-12-27', 'Saturday', '12:00:00', '00:00:00', 'available'),
 (5, 3, '2021-01-25', 'Monday', '08:30:00', '09:45:00', 'available'),
@@ -172,17 +178,18 @@ CREATE TABLE `users` (
   `usersUsername` varchar(128) NOT NULL,
   `usersEmail` varchar(128) NOT NULL,
   `phoneNumber` varchar(15) NOT NULL,
-  `usersPassword` varchar(128) NOT NULL
+  `usersPassword` varchar(128) NOT NULL,
+  `usersPhoto` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`usersId`, `usersName`, `usersUsername`, `usersEmail`, `phoneNumber`, `usersPassword`) VALUES
-(9, 'zakky okky', 'zakky', 'zakky.okky@gmail.com', '087702840399', '$2y$10$xeG0p4oQ8gBPxTKv51Y0K.AuTeype0IexrbMQNPsrwLTkouI1GG32'),
-(11, 'papapapap', 'luluk', 'luluk@gmail.com', '087702840399', '$2y$10$BqLMSzvxoPStCnHNK9iFS.ydVMUqXOYMBmaAwKVJB95gmqkbjgK1O'),
-(12, 'budi santoso', 'budi', 'budi@gmail.com', '08123456789', '$2y$10$ONSVqnWN/DNQ9d6JePVQA.iZw9wWXBjLB8a2e2HY88zbFxOJx2LFO');
+INSERT INTO `users` (`usersId`, `usersName`, `usersUsername`, `usersEmail`, `phoneNumber`, `usersPassword`, `usersPhoto`) VALUES
+(9, 'zakky okky', 'zakky', 'zakky.okky@gmail.com', '087702840399', '$2y$10$xeG0p4oQ8gBPxTKv51Y0K.AuTeype0IexrbMQNPsrwLTkouI1GG32', ''),
+(11, 'papapapap', 'luluk', 'luluk@gmail.com', '087702840399', '$2y$10$BqLMSzvxoPStCnHNK9iFS.ydVMUqXOYMBmaAwKVJB95gmqkbjgK1O', ''),
+(43, 'napiul', 'napiul', 'napiul@coding.com', '321123321', '$2y$10$AChbSNsrrKY4ucVuuC.Y9eMv8dXKJddRD4yxe4b27qpSOamaXBkVS', '402-34884640_2053546474719184_3869924340111769600_n.jpg');
 
 --
 -- Indexes for dumped tables
@@ -232,13 +239,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id_pendaftaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_pendaftaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `checkup`
 --
 ALTER TABLE `checkup`
-  MODIFY `id_checkup` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_checkup` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `doctors`
@@ -256,7 +263,7 @@ ALTER TABLE `schedule`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `usersId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `usersId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
