@@ -1,5 +1,5 @@
 <?php
-    include_once '../../includes/dbh.inc.php';
+include_once '../../includes/dbh.inc.php';
 ?>
 
 <!DOCTYPE html>
@@ -10,10 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords"
-        content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 4 admin, bootstrap 4, css3 dashboard, bootstrap 4 dashboard, Monsterlite admin bootstrap 4 dashboard, frontend, responsive bootstrap 4 admin template, Monster admin lite design, Monster admin lite dashboard bootstrap 4 dashboard template">
-    <meta name="description"
-        content="Monster Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="keywords" content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 4 admin, bootstrap 4, css3 dashboard, bootstrap 4 dashboard, Monsterlite admin bootstrap 4 dashboard, frontend, responsive bootstrap 4 admin template, Monster admin lite design, Monster admin lite dashboard bootstrap 4 dashboard template">
+    <meta name="description" content="Monster Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
     <title>Monster Lite Template by WrapPixel</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/monster-admin-lite/" />
@@ -42,8 +40,7 @@
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
-        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full" data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
@@ -74,8 +71,7 @@
                     <!-- ============================================================== -->
                     <!-- toggle and nav items -->
                     <!-- ============================================================== -->
-                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
-                        href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -83,8 +79,7 @@
                 <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
                     <ul class="navbar-nav d-none d-md-block d-lg-none">
                         <li class="nav-item">
-                            <a class="nav-toggler nav-link waves-effect waves-light text-white"
-                                href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                            <a class="nav-toggler nav-link waves-effect waves-light text-white" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                         </li>
                     </ul>
                     <!-- ============================================================== -->
@@ -96,7 +91,7 @@
                         <!-- ============================================================== -->
 
                         <li class="nav-item hidden-sm-down">
-                            <div style="color: white; margin-left: 20px; margin-top: 5px"> 
+                            <div style="color: white; margin-left: 20px; margin-top: 5px">
                                 <h4>Welcome Admin</h4>
                             </div>
                         </li>
@@ -110,8 +105,7 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" 
-                                aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" aria-haspopup="true" aria-expanded="false">
                             </a>
                         </li>
                     </ul>
@@ -131,27 +125,15 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <!-- User Profile-->
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="doctors-page.php" aria-expanded="false">
-                                <i class="mr-3 fa fa-user" aria-hidden="true"></i><span
-                                    class="hide-menu">Doctors</span></a>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="doctors-page.php" aria-expanded="false">
+                                <i class="mr-3 fa fa-user" aria-hidden="true"></i><span class="hide-menu">Doctors</span></a>
                         </li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="table-basic.php" aria-expanded="false"><i class="mr-3 fa fa-table"
-                                    aria-hidden="true"></i><span class="hide-menu">Patient list</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="pages-blank.php" aria-expanded="false"><i class="mr-3 fa fa-columns"
-                                    aria-hidden="true"></i><span class="hide-menu">Schedule</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="appointment-page.php" aria-expanded="false"><i class="mr-3 fas fa-address-book"
-                                    aria-hidden="true"></i><span class="hide-menu">Appointment</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="checkup-page.php" aria-expanded="false"><i class="mr-3 fas fa-calendar-plus"
-                                    aria-hidden="true"></i><span class="hide-menu">Check Up</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="table-basic.php" aria-expanded="false"><i class="mr-3 fa fa-table" aria-hidden="true"></i><span class="hide-menu">Patient list</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-blank.php" aria-expanded="false"><i class="mr-3 fa fa-columns" aria-hidden="true"></i><span class="hide-menu">Schedule</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="appointment-page.php" aria-expanded="false"><i class="mr-3 fas fa-address-book" aria-hidden="true"></i><span class="hide-menu">Appointment</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="checkup-page.php" aria-expanded="false"><i class="mr-3 fas fa-calendar-plus" aria-hidden="true"></i><span class="hide-menu">Check Up</span></a></li>
                         <li class="text-center p-20 upgrade-btn">
-                            <a href="../../index.php"
-                                class="btn btn-danger text-white mt-4" target="_blank"><i class="mr-3 fas fa-power-off"
-                                    aria-hidden="true"></i>Log out
+                            <a href="../../index.php" class="btn btn-danger text-white mt-4" target="_blank"><i class="mr-3 fas fa-power-off" aria-hidden="true"></i>Log out
                             </a>
                         </li>
                     </ul>
@@ -178,15 +160,14 @@
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    
+
                                 </ol>
                             </nav>
                         </div>
                     </div>
                     <div class="col-md-6 col-4 align-self-center">
                         <div class="text-right upgrade-btn">
-                            <a onClick="window.location.reload();"
-                                class="btn btn-success d-none d-md-inline-block text-white"><i class="mr-3 fas fa-sync"></i>Refresh
+                            <a onClick="window.location.reload();" class="btn btn-success d-none d-md-inline-block text-white"><i class="mr-3 fas fa-sync"></i>Refresh
                             </a>
                         </div>
                     </div>
@@ -219,32 +200,30 @@
                                                 <th class="border-top-0">Gejala</th>
                                                 <th class="border-top-0">Pesan</th>
                                                 <th class="border-top-0">Status</th>
-                                                <th class="border-top-0">Delete</th>
-                                                <th class="border-top-0">Change</th>
+                                                <th class="border-top-0">Cancel</th>
+                                                <th class="border-top-0">Done</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                                
-                                                $result1 = mysqli_query($conn, "SELECT * FROM appointment WHERE status_janji = 'queue'");
 
-                                                while ($rows1 = mysqli_fetch_assoc($result1)) {
-                                                    
-                                                    echo "<tr>";
-                                                    
-                                                    echo "<td>" . $rows1['id_pendaftaran'] . "</td>";
-                                                    echo "<td>" . $rows1['id_user'] . "</td>";
-                                                    echo "<td>" . $rows1['id_jadwal'] . "</td>";
-                                                    echo "<td>" . $rows1['gejala'] . "</td>";
-                                                    echo "<td>" . $rows1['pesan'] . "</td>";
-                                                    echo "<td>" . $rows1['status_janji'] . "</td>";
-                                                    echo "<td><a href='../../includes/delete-appointment.inc.php?id=$rows1[id_pendaftaran]'>Delete</a></td>";
-                                                    echo "<td><a href='../../includes/change-appointment.inc.php?id=$rows1[id_pendaftaran]'>Change</a></td>";
-                                                    
-                                                    echo "</tr>";
-                                                    
-                                                    
-                                                }
+                                            $result1 = mysqli_query($conn, "SELECT * FROM appointment WHERE status_janji = 'queue'");
+
+                                            while ($rows1 = mysqli_fetch_assoc($result1)) {
+
+                                                echo "<tr>";
+
+                                                echo "<td>" . $rows1['id_pendaftaran'] . "</td>";
+                                                echo "<td>" . $rows1['id_user'] . "</td>";
+                                                echo "<td>" . $rows1['id_jadwal'] . "</td>";
+                                                echo "<td>" . $rows1['gejala'] . "</td>";
+                                                echo "<td>" . $rows1['pesan'] . "</td>";
+                                                echo "<td>" . $rows1['status_janji'] . "</td>";
+                                                echo "<td><a href='../../includes/cancel-appointment.inc.php?id=$rows1[id_pendaftaran]'>Cancel</a></td>";
+                                                echo "<td><a href='../../includes/change-appointment.inc.php?id=$rows1[id_pendaftaran]'>Done</a></td>";
+
+                                                echo "</tr>";
+                                            }
                                             ?>
                                         </tbody>
                                     </table>
@@ -272,33 +251,74 @@
                                                 <th class="border-top-0">Gejala</th>
                                                 <th class="border-top-0">Pesan</th>
                                                 <th class="border-top-0">Status</th>
-                                                <th class="border-top-0">Delete</th>
-                                                <th class="border-top-0">Change</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                                
-                                                $result1 = mysqli_query($conn, "SELECT * FROM appointment WHERE status_janji = 'done'");
 
-                                                while ($rows1 = mysqli_fetch_assoc($result1)) {
+                                            $result1 = mysqli_query($conn, "SELECT * FROM appointment WHERE status_janji = 'done'");
 
-                                                    
-                                                    echo "<tr>";
-                                                    
-                                                    echo "<td>" . $rows1['id_pendaftaran'] . "</td>";
-                                                    echo "<td>" . $rows1['id_user'] . "</td>";
-                                                    echo "<td>" . $rows1['id_jadwal'] . "</td>";
-                                                    echo "<td>" . $rows1['gejala'] . "</td>";
-                                                    echo "<td>" . $rows1['pesan'] . "</td>";
-                                                    echo "<td>" . $rows1['status_janji'] . "</td>";
-                                                    echo "<td><a href='../../includes/delete-appointment.inc.php?id=$rows1[id_pendaftaran]'>Delete</a></td>";
-                                                    echo "<td><a href='../../includes/change-appontment-done.inc.php?id=$rows1[id_pendaftaran]'>Change</a></td>";
-                                                    
-                                                    echo "</tr>";
-                                                    
-                                                    
-                                                }
+                                            while ($rows1 = mysqli_fetch_assoc($result1)) {
+
+
+                                                echo "<tr>";
+
+                                                echo "<td>" . $rows1['id_pendaftaran'] . "</td>";
+                                                echo "<td>" . $rows1['id_user'] . "</td>";
+                                                echo "<td>" . $rows1['id_jadwal'] . "</td>";
+                                                echo "<td>" . $rows1['gejala'] . "</td>";
+                                                echo "<td>" . $rows1['pesan'] . "</td>";
+                                                echo "<td>" . $rows1['status_janji'] . "</td>";
+
+                                                echo "</tr>";
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">List of Appointment</h4>
+                                <h6 class="card-subtitle">Appointment Canceled</h6>
+                                <div class="table-responsive">
+                                    <table class="table user-table no-wrap">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-top-0">Id</th>
+                                                <th class="border-top-0">Id user</th>
+                                                <th class="border-top-0">Id jadwal</th>
+                                                <th class="border-top-0">Gejala</th>
+                                                <th class="border-top-0">Pesan</th>
+                                                <th class="border-top-0">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+
+                                            $result1 = mysqli_query($conn, "SELECT * FROM appointment WHERE status_janji = 'canceled'");
+
+                                            while ($rows1 = mysqli_fetch_assoc($result1)) {
+
+
+                                                echo "<tr>";
+
+                                                echo "<td>" . $rows1['id_pendaftaran'] . "</td>";
+                                                echo "<td>" . $rows1['id_user'] . "</td>";
+                                                echo "<td>" . $rows1['id_jadwal'] . "</td>";
+                                                echo "<td>" . $rows1['gejala'] . "</td>";
+                                                echo "<td>" . $rows1['pesan'] . "</td>";
+                                                echo "<td>" . $rows1['status_janji'] . "</td>";
+
+                                                echo "</tr>";
+                                            }
                                             ?>
                                         </tbody>
                                     </table>
@@ -320,7 +340,7 @@
             </div>
 
 
-            
+
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
