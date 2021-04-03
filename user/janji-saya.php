@@ -20,6 +20,10 @@ session_start();
     <link href="assets/plugins/chartist/dist/chartist.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="monster-html/css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -197,6 +201,7 @@ session_start();
                                                 <th class="border-top-0">Dokter</th>
                                                 <th class="border-top-0">Jadwal</th>
                                                 <th class="border-top-0">Status</th>
+                                                <th class="border-top-0">Detail</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -204,14 +209,17 @@ session_start();
 
                                             <?php
                                             include "dbh.inc.php";
-                                            $sql = "SELECT appointment.id_dokter AS ap_iddoc, appointment.id_jadwal AS ap_jadwal, schedule.idSchedule AS sc_jadwal, schedule.dateSchedule AS sc_date, schedule.daySchedule AS sc_day, doctors.id_dokter AS doc_iddoc, doctors.nama_dokter AS doc_name, status_janji, id_pendaftaran FROM appointment INNER JOIN schedule ON appointment.id_jadwal = schedule.idSchedule INNER JOIN doctors ON appointment.id_dokter = doctors.id_dokter WHERE id_user = '" . $_SESSION['idUser'] . "'";
+                                            $sql = "SELECT appointment.id_dokter AS ap_iddoc, appointment.id_jadwal AS ap_jadwal, schedule.idSchedule AS sc_jadwal, schedule.dateSchedule AS sc_date, schedule.daySchedule AS sc_day, schedule.starttime AS sc_time, doctors.id_dokter AS doc_iddoc, doctors.nama_dokter AS doc_name, status_janji, id_pendaftaran, pembayaran FROM appointment INNER JOIN schedule ON appointment.id_jadwal = schedule.idSchedule INNER JOIN doctors ON appointment.id_dokter = doctors.id_dokter WHERE id_user = '" . $_SESSION['idUser'] . "'";
                                             $no = 0;
                                             $app_query = mysqli_query($conn, $sql);
                                             while ($rows = mysqli_fetch_array($app_query)) {
                                                 $no++;
+                                                $id_app = $rows["id_pendaftaran"];
+                                                $payment = $rows["pembayaran"];
                                                 $name_doc = $rows["doc_name"];
                                                 $sc_date = $rows["sc_date"];
                                                 $sc_day = $rows["sc_day"];
+                                                $sc_time = $rows["sc_time"];
                                                 $status = $rows["status_janji"];
                                             ?>
                                                 <tr>
@@ -220,10 +228,51 @@ session_start();
                                                     <td class="align-middle"><?= $name_doc ?></td>
                                                     <td class="align-middle"><?= $sc_day ?>, <?= $sc_date ?></td>
                                                     <td class="align-middle"><?= $status ?></td>
+                                                    <td class="align-middle"><button type="button" class="btn btn-success text-white" data-toggle="modal" data-target="#myModal<?= $id_app ?>">Click here</button></td>
                                                 </tr>
-                                            <?php
-                                            }
-                                            ?>
+                                                <div class="modal fade" id="myModal<?= $id_app ?>" role="dialog">
+                                                    <div class="modal-dialog">
+                                                        <!-- Modal content-->
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title">Detail Janji Pasien</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form role="form">
+                                                                    <div class="form-group">
+                                                                        <label>Dokter</label>
+                                                                        <input type="text" name="ndokter" class="form-control" value="<?= $name_doc ?>" disabled>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Waktu</label>
+                                                                        <input type="text" name="waktu" class="form-control" value="<?= $sc_day ?> - <?= $sc_time ?> , <?= $sc_date ?>" disabled>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Pasien</label>
+                                                                        <input type="text" name="npasien" class="form-control" value="<?= $_SESSION["nameUser"] ?>" disabled>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Email</label>
+                                                                        <input type="email" name="epasien" class="form-control" value="<?= $_SESSION["emailUser"] ?>" disabled>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Telepon</label>
+                                                                        <input type="text" name="tpasien" class="form-control" value="<?= $_SESSION["phoneUser"] ?>" disabled>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Metode Pembayaran</label>
+                                                                        <input type="text" name="mpasien" class="form-control" value="<?= $payment ?>" disabled>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-default text-white" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -274,5 +323,7 @@ session_start();
     <script src="assets/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
     <script src="monster-html/js/pages/dashboards/dashboard1.js"></script>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 
 </html>
