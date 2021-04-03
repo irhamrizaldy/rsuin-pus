@@ -180,6 +180,9 @@ session_start();
                             </nav>
                         </div>
                     </div>
+                    <!-- ============================================================== -->
+                    <!-- Pilihan Button Sesuai Fungsi -->
+                    <!-- ============================================================== -->
                     <div class="d-md-flex">
                         <button type="button" id="bsemua" onclick="callSemua()" class="btn btn-outline-primary m-1 text-black">Semua</button>
                         <button type="button" id="baktif" onclick="callAktif()" class="btn btn-outline-info m-1 text-black">Aktif</button>
@@ -188,6 +191,9 @@ session_start();
                     </div>
                 </div>
             </div>
+            <!-- ============================================================== -->
+            <!-- Data Pasien dengan Status Queue -->
+            <!-- ============================================================== -->
             <div class="container-fluid pt-0">
                 <div class="row" id="queuerow">
                     <div class="col-sm-12">
@@ -278,7 +284,9 @@ session_start();
                         </div>
                     </div>
                 </div>
-
+                <!-- ============================================================== -->
+                <!-- Data Pasien dengan Status Done -->
+                <!-- ============================================================== -->
                 <div class="row" id="donerow">
                     <div class="col-sm-12">
                         <div class="card">
@@ -369,6 +377,9 @@ session_start();
                     </div>
                 </div>
 
+                <!-- ============================================================== -->
+                <!-- Data Pasien dengan Status Cancel -->
+                <!-- ============================================================== -->
                 <div class="row" id="cancelrow">
                     <div class="col-sm-12">
                         <div class="card">
