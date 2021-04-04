@@ -116,17 +116,7 @@ if (isset($_POST['search'])) {
             <div class='col-lg-3 col-md-6 d-flex align-items-stretch' data-aos='fade-up' data-aos-delay='100'>
               <div class='member'>
                 <div class='member-img'>
-                  <?php
-                  $all_images = glob("assets/img/team/{*.jpg}", GLOB_BRACE);
-                  shuffle($all_images);
-                  $images = array();
-                  foreach ($all_images as $index => $image) {
-                    if ($index == 1) break;  // Only print 15 images
-                    $image_name = basename($image);
-                    // echo "<img src='/images/photos/{$image_name}' />";
-                    echo "<img src='assets/img/team/{$image_name}' class='img-fluid' alt='' height='400px' width='300px'>";
-                  }
-                  ?>
+                  <img src='assets/img/team/ldw.jpg' class='img-fluid' alt='' height='400px' width='300px'>
                   <div class='social'>
                     <a href="buat-janji.php?id=<?= $dokter_id ?>" style="width: 80px;">Buat Janji</a>
                   </div>

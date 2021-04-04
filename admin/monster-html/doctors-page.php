@@ -189,7 +189,7 @@ require_once '../../includes/dbh.inc.php';
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Add Doctors</h4>
-                                <form action="../../includes/doctors.inc.php" class="form-horizontal form-material" method="post">
+                                <form action="../../includes/doctors.inc.php" enctype="multipart/form-data" class="form-horizontal form-material" method="post">
                                     <div class="form-group">
                                         <label class="col-md-12 mb-0">Full Name</label>
                                         <div class="col-md-12">
@@ -230,6 +230,12 @@ require_once '../../includes/dbh.inc.php';
                                         <label class="col-sm-12">City</label>
                                         <div class="col-sm-12">
                                             <input type="text" class="form-control pl-0 form-control-line" name="city" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-12">Doctor Profile Picture</label>
+                                        <div class="col-sm-12">
+                                            <input type="file" name="docs_img" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
