@@ -115,7 +115,6 @@ if (isset($_POST['search'])) {
           ?>
             <div class='col-lg-3 col-md-6 d-flex align-items-stretch' data-aos='fade-up' data-aos-delay='100'>
               <div class='member'>
-
                 <div class='member-img'>
                   <?php
                   $all_images = glob("assets/img/team/{*.jpg}", GLOB_BRACE);
