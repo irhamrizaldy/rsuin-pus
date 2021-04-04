@@ -64,10 +64,25 @@ include 'includes/dbh.inc.php';
 <section id="services" class="team section-bg">
   <div class="container" data-aos="">
     <div class="row" style="margin-top: 100px;">
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="" data-aos-delay="100">
+      <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="" data-aos-delay="100">
         <div class="member">
           <div class="member-img">
-            <img src="assets/img/team/ldw.jpg" class="img-fluid" alt="" height="400px" width="300px">
+            <?php
+            $id_dokterf = $_GET["id"];
+
+            $image_query = mysqli_query($conn, "SELECT doc_img FROM doctors WHERE id_dokter = '$id_dokterf'");
+            while ($rows = mysqli_fetch_array($image_query)) {
+              $doc_img_name = $rows["doc_img"];
+            }
+            ?>
+            <style>
+              .doc-profile-pict {
+                width: 350px;
+                height: 350px;
+                object-fit: cover;
+              }
+            </style>
+            <img src="assets/img/team/<?= $doc_img_name ?>" class="doc-profile-pict" alt="">
             <!-- <img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""> -->
             <div class="social">
             </div>
@@ -82,8 +97,8 @@ include 'includes/dbh.inc.php';
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_assoc($result);
 
-            echo "<h4>" . $row['nama_dokter'] . "</h4>";
-            echo "<p>Spesialis " . $row['spesialisasi'] . "</p>";
+            echo "<center><h4>" . $row['nama_dokter'] . "</h4></center>";
+            echo "<center><p>Spesialis " . $row['spesialisasi'] . "</p></center>";
 
 
             $sql2 = "SELECT * FROM schedule WHERE idDoctors = '$id_dokter' AND avail = 'available'";
@@ -93,11 +108,11 @@ include 'includes/dbh.inc.php';
             if ($check2 > 0) {
               while ($rows2 = mysqli_fetch_assoc($result2)) {
                 echo "
-                    <p class='mb-0'>" . $rows2['daySchedule'] . " " . $rows2['starttime'] . " - " . $rows2['endtime'] . "</p>
+                    <center><p class='mb-0'>" . $rows2['daySchedule'] . " " . $rows2['starttime'] . " - " . $rows2['endtime'] . "</p></center>
                     ";
               }
             } else {
-              echo "<p>Tidak ada jadwal</p>";
+              echo "<center><p>Tidak ada jadwal</p></center>";
             }
             ?>
 

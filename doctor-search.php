@@ -111,12 +111,20 @@ if (isset($_POST['search'])) {
           while ($rows = mysqli_fetch_assoc($result)) {
 
             $dokter_id = $rows['id_dokter'];
+            $doc_img = $rows['doc_img'];
 
           ?>
             <div class='col-lg-3 col-md-6 d-flex align-items-stretch' data-aos='fade-up' data-aos-delay='100'>
               <div class='member'>
                 <div class='member-img'>
-                  <img src='assets/img/team/ldw.jpg' class='img-fluid' alt='' height='400px' width='300px'>
+                  <style>
+                    .doc-profile-pict {
+                      width: 250px;
+                      height: 250px;
+                      object-fit: cover;
+                    }
+                  </style>
+                  <img src='assets/img/team/<?= $doc_img ?>' class='doc-profile-pict' alt=''>
                   <div class='social'>
                     <a href="buat-janji.php?id=<?= $dokter_id ?>" style="width: 80px;">Buat Janji</a>
                   </div>
@@ -126,8 +134,8 @@ if (isset($_POST['search'])) {
 
                   <?php
 
-                  echo "<h4>" . $rows['nama_dokter'] . "</h4>";
-                  echo "<p> Spesialis" . $rows['spesialisasi'] . "</p>";
+                  echo "<center><h4>" . $rows['nama_dokter'] . "</h4></center>";
+                  echo "<center><p> Spesialis" . $rows['spesialisasi'] . "</p></center>";
 
 
                   $sql2 = "SELECT * FROM schedule WHERE idDoctors = $dokter_id AND avail = 'available'";
@@ -137,11 +145,11 @@ if (isset($_POST['search'])) {
                   if ($check2 > 0) {
                     while ($rows2 = mysqli_fetch_assoc($result2)) {
                       echo "
-                    <p class='mb-0'>" . $rows2['daySchedule'] . " " . $rows2['starttime'] . " - " . $rows2['endtime'] . "</p>
+                      <center><p class='mb-0'>" . $rows2['daySchedule'] . " " . $rows2['starttime'] . " - " . $rows2['endtime'] . "</p></center>
                     ";
                     }
                   } else {
-                    echo "<p>Tidak ada jadwal</p>";
+                    echo "<center><p>Tidak ada jadwal</p></center>";
                   }
                   ?>
                 </div>
@@ -179,112 +187,6 @@ if (isset($_POST['search'])) {
 }
 ?>
 
-<!--
-    <section id="team" class="team section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Doctors</h2>
-          <h3>Cari Jadwal <span>Dokter</span></h3>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="member">
-              <div class="member-img">
-                <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="icofont-twitter"></i></a>
-                  <a href=""><i class="icofont-facebook"></i></a>
-                  <a href=""><i class="icofont-instagram"></i></a>
-                  <a href=""><i class="icofont-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Walter White</h4>
-                <p>Spesialis Gigi</p>
-                <p class="mb-0">Minggu 19:00-20:00</p>
-                <p>Minggu 19:00-20:00</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="member">
-              <div class="member-img">
-                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="icofont-twitter"></i></a>
-                  <a href=""><i class="icofont-facebook"></i></a>
-                  <a href=""><i class="icofont-instagram"></i></a>
-                  <a href=""><i class="icofont-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Product Manager</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="member">
-              <div class="member-img">
-                <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="icofont-twitter"></i></a>
-                  <a href=""><i class="icofont-facebook"></i></a>
-                  <a href=""><i class="icofont-instagram"></i></a>
-                  <a href=""><i class="icofont-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-            <div class="member">
-              <div class="member-img">
-                <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="icofont-twitter"></i></a>
-                  <a href=""><i class="icofont-facebook"></i></a>
-                  <a href=""><i class="icofont-instagram"></i></a>
-                  <a href=""><i class="icofont-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
-              </div>
-            </div>
-          </div>
-
-          
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-            <div class="member">
-              <div class="member-img">
-                <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="icofont-twitter"></i></a>
-                  <a href=""><i class="icofont-facebook"></i></a>
-                  <a href=""><i class="icofont-instagram"></i></a>
-                  <a href=""><i class="icofont-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
-              </div>
-            </div>
-          </div>
-        </div>
--->
 </div>
 </section>
 
